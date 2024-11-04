@@ -181,6 +181,21 @@ distance = -35.0
 normal = Vector2(-1, 0)
 distance = 2.0
 
+[sub_resource type="Animation" id="Animation_ttu1a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-65, -27)]
+}
+
 [sub_resource type="Animation" id="Animation_jgrf1"]
 resource_name = "move"
 length = 3.0
@@ -208,21 +223,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-65, -27), Vector2(-63, -67)]
-}
-
-[sub_resource type="Animation" id="Animation_ttu1a"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-65, -27)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vad1a"]
@@ -277,7 +277,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(327671, 524288, 1, 327672, 524288, 1, 327673, 524288, 1, 327674, 524288, 1, 327675, 524288, 1, 327676, 524288, 1, 327677, 524288, 1, 327678, 524288, 1, 327679, 524288, 1, 262144, 524288, 1, 262145, 524288, 1, 262146, 524288, 1, 262147, 524288, 1, 262148, 524288, 1, 262149, 524288, 1, 262150, 524288, 1, 262151, 524288, 1, 262152, 524288, 1, 262135, 65536, 0, 196599, 65536, 0, 196600, 65536, 0, 262136, 65536, 0, 262137, 65536, 0, 196601, 65536, 0, 131063, 65536, 0, 65527, 65536, 0, -9, 65536, 0, 196616, 524288, 0, 131080, 524288, 0, 65544, 524288, 0, 8, 524288, 0, -65528, 524288, 0, -131064, 524288, 0, -131066, 589824, 0, -131065, 655360, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_d3xyg")]
-position = Vector2(6, 64)
+position = Vector2(6, 66)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-13, -10)
