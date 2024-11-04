@@ -40,18 +40,19 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_foafa"]
-radius = 5.0
+radius = 6.0
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 5
 script = ExtResource("1_fh8p8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-14, -12)
+position = Vector2(-14, -13)
 sprite_frames = SubResource("SpriteFrames_c7c7e")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.467272
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-14, -6)
+position = Vector2(-14, -7)
 shape = SubResource("CircleShape2D_foafa")
