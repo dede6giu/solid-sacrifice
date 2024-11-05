@@ -8,13 +8,14 @@ var isJump := false
 var isFreeFall := false
 var isHoldingBox := false
 var isNearBox := false
+var heldBoxID = null
 @onready var free_fall_timer: Timer = $FreeFallTimer
 
-func create_statue():
-	# Needs to fix the state follow the player
-	var newStatue = statuePath.instantiate()
-	newStatue.position = Vector2(0,0)
-	add_child(newStatue)
+#func create_statue():
+#	# Needs to fix the state follow the player
+#	var newStatue = statuePath.instantiate()
+#	newStatue.position = Vector2(0,0)
+#	add_child(newStatue)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -29,9 +30,9 @@ func _physics_process(delta: float) -> void:
 		else:
 			isHoldingBox = false
 	
-	if Input.is_action_just_pressed("spawn_statue"):
-		#Take Player position and create a statue 
-		create_statue()
+#	if Input.is_action_just_pressed("spawn_statue"):
+#		#Take Player position and create a statue 
+#		create_statue()
 
 	# Handle jump.
 	if !isHoldingBox and Input.is_action_just_pressed("jump") and is_on_floor():

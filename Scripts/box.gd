@@ -10,7 +10,7 @@ var directionPlayer := false # 0: right; 1: left
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if isNearPlayer:
+	if isNearPlayer and player.heldBoxID == get_instance_id():
 		isBeingControlled = Input.is_action_pressed("interact_hold")
 	else:
 		isBeingControlled = false
@@ -35,10 +35,12 @@ func _physics_process(delta: float) -> void:
 
 
 func enter_area(body: Node2D) -> void:
-	body.isNearBox = true
-	isNearPlayer = true
-	player = body
-	linear_damp = 0
+	if !body.heldBoxID:
+		body.isNearBox = true
+		body.heldBoxID = get_instance_id()
+		isNearPlayer = true
+		player = body
+		linear_damp = 0
 
 
 func _on_left_body_entered(body: Node2D) -> void:
@@ -55,13 +57,15 @@ func _on_right_body_entered(body: Node2D) -> void:
 
 
 func left_area(body: Node2D) -> void:
-	body.isNearBox = false
-	isNearPlayer = false
-	isBeingControlled = false
-	player = null
-	linear_damp = 0.1
-	collision_left.set_deferred("disabled", false)
-	collision_right.set_deferred("disabled", false)
+	if body.heldBoxID == get_instance_id():
+		body.heldBoxID = null
+		body.isNearBox = false
+		isNearPlayer = false
+		isBeingControlled = false
+		player = null
+		linear_damp = 0.1
+		collision_left.set_deferred("disabled", false)
+		collision_right.set_deferred("disabled", false)
 
 func _on_left_body_exited(body: Node2D) -> void:
 	left_area(body)
