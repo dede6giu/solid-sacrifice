@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpm2umr3xk6as"]
+
+[ext_resource type="Script" path="res://Scripts/transition.gd" id="1_eloi2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ihatt"]
+normal = Vector2(-1, 0)
+
+[node name="Transition" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_eloi2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -1)
+shape = SubResource("WorldBoundaryShape2D_ihatt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

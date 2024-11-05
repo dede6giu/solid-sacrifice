@@ -77,3 +77,4 @@ func _physics_process(delta: float) -> void:
 func _on_free_fall_timer_timeout() -> void:
 	if !is_on_floor():
 		animated_sprite_2d.play("FreeFall_B")
+		

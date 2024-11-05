@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bn2a6qrtxx6rk"]
+[gd_scene load_steps=14 format=3 uid="uid://bn2a6qrtxx6rk"]
 
 [ext_resource type="PackedScene" uid="uid://mfcgv2lxhelj" path="res://Scenes/player.tscn" id="1_d3xyg"]
 [ext_resource type="Texture2D" uid="uid://cw2a227ffj6m" path="res://Assets/sprites/world_tileset.png" id="2_tscuk"]
 [ext_resource type="PackedScene" uid="uid://dxpd61cq541o3" path="res://Scenes/platform.tscn" id="3_pe2dd"]
 [ext_resource type="PackedScene" uid="uid://dr3n25lp8t06p" path="res://Scenes/box.tscn" id="4_xkxul"]
+[ext_resource type="PackedScene" uid="uid://bpm2umr3xk6as" path="res://Scenes/transition.tscn" id="5_ib6ny"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ef6bg"]
 texture = ExtResource("2_tscuk")
@@ -270,7 +271,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(327671, 524288, 1, 327672, 524288, 1, 327673, 524288, 1, 327674, 524288, 1, 327675, 524288, 1, 327676, 524288, 1, 327677, 524288, 1, 327678, 524288, 1, 327679, 524288, 1, 262144, 524288, 1, 262145, 524288, 1, 262146, 524288, 1, 262147, 524288, 1, 262148, 524288, 1, 262149, 524288, 1, 262150, 524288, 1, 262151, 524288, 1, 262152, 524288, 1, 262135, 65536, 0, 196599, 65536, 0, 196600, 65536, 0, 262136, 65536, 0, 262137, 65536, 0, 196601, 65536, 0, 131063, 65536, 0, 65527, 65536, 0, -9, 65536, 0, 196616, 524288, 0, 131080, 524288, 0, 65544, 524288, 0, 8, 524288, 0, -65528, 524288, 0, -131064, 524288, 0, -131066, 589824, 0, -131065, 655360, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_d3xyg")]
-position = Vector2(6, 63)
+position = Vector2(7, 66)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-13, -10)
@@ -304,3 +305,6 @@ position = Vector2(-33, -91)
 
 [node name="Box" parent="Box" instance=ExtResource("4_xkxul")]
 position = Vector2(-38, -44)
+
+[node name="Transition" parent="." instance=ExtResource("5_ib6ny")]
+position = Vector2(129, 14)
