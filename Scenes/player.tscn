@@ -133,7 +133,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yj76y")
 }],
-"loop": true,
+"loop": false,
 "name": &"FreeFall_A",
 "speed": 5.0
 }, {
@@ -168,18 +168,18 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 10.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_luw7s")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_2gamd")
 }],
-"loop": true,
+"loop": false,
 "name": &"Jump",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -249,10 +249,14 @@ script = ExtResource("1_fh8p8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-15, -9)
 sprite_frames = SubResource("SpriteFrames_c7c7e")
-animation = &"FreeFall_B"
-autoplay = "Idle"
-frame_progress = 0.583105
+animation = &"FreeFall_A"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-15, -8)
 shape = SubResource("CapsuleShape2D_r8e5h")
+
+[node name="FreeFallTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="FreeFallTimer" to="." method="_on_free_fall_timer_timeout"]
