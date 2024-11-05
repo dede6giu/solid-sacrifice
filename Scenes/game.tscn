@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bn2a6qrtxx6rk"]
+[gd_scene load_steps=10 format=4 uid="uid://bn2a6qrtxx6rk"]
 
 [ext_resource type="PackedScene" uid="uid://mfcgv2lxhelj" path="res://Scenes/player.tscn" id="1_d3xyg"]
 [ext_resource type="Texture2D" uid="uid://c0w2jkhu17fau" path="res://Assets/sprites/Tileset1.png" id="1_pnynp"]
@@ -307,7 +307,23 @@ texture = ExtResource("1_pnynp")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ef6bg")
 
-[sub_resource type="Animation" id="Animation_ttu1a"]
+[sub_resource type="Animation" id="Animation_jv5ry"]
+resource_name = "new_animation"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(30, -72), Vector2(30, 31)]
+}
+
+[sub_resource type="Animation" id="Animation_dw67v"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -319,80 +335,13 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-65, -27)]
+"values": [Vector2(30, 31)]
 }
 
-[sub_resource type="Animation" id="Animation_jgrf1"]
-resource_name = "move"
-length = 3.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Platform3:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-65, -27), Vector2(-63, -67)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vad1a"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dp7re"]
 _data = {
-"RESET": SubResource("Animation_ttu1a"),
-"move": SubResource("Animation_jgrf1")
-}
-
-[sub_resource type="Animation" id="Animation_coyyh"]
-resource_name = "Platform"
-length = 3.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-146, -86), Vector2(-146, -4)]
-}
-
-[sub_resource type="Animation" id="Animation_2wdid"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-146, -86)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_127ag"]
-_data = {
-"Platform": SubResource("Animation_coyyh"),
-"RESET": SubResource("Animation_2wdid")
+"RESET": SubResource("Animation_dw67v"),
+"new_animation": SubResource("Animation_jv5ry")
 }
 
 [node name="Game" type="Node2D"]
@@ -415,35 +364,24 @@ tile_map_data = PackedByteArray("AAD4//f/AAAHAAYAAAD5//f/AAAHAAYAAAD6//f/AAAHAAY
 tile_set = SubResource("TileSet_ack76")
 
 [node name="Player" parent="." instance=ExtResource("1_d3xyg")]
-position = Vector2(137, -28)
+position = Vector2(-83, -26)
 
 [node name="Camera2D" parent="Player" index="3"]
 limit_left = -144
+limit_top = -135
+limit_right = 240
 limit_bottom = 80
 
 [node name="Plataforms" type="Node2D" parent="."]
 
 [node name="Platform" parent="Plataforms" instance=ExtResource("3_pe2dd")]
-position = Vector2(-65, -27)
+position = Vector2(30, 31)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Plataforms/Platform"]
 libraries = {
-"": SubResource("AnimationLibrary_vad1a")
+"": SubResource("AnimationLibrary_dp7re")
 }
-autoplay = "move"
-
-[node name="Platform2" parent="Plataforms" instance=ExtResource("3_pe2dd")]
-position = Vector2(-146, -86)
-sync_to_physics = false
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataforms/Platform2"]
-libraries = {
-"": SubResource("AnimationLibrary_127ag")
-}
-autoplay = "Platform"
-
-[node name="Platform3" parent="Plataforms" instance=ExtResource("3_pe2dd")]
-position = Vector2(187, -61)
+autoplay = "new_animation"
 
 [node name="Boxes" type="Node2D" parent="."]
 
