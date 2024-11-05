@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dr3n25lp8t06p"]
+[gd_scene load_steps=6 format=3 uid="uid://dr3n25lp8t06p"]
 
 [ext_resource type="Texture2D" uid="uid://cm32bytp7ywab" path="res://Assets/Box.png" id="1_0csh1"]
 [ext_resource type="Script" path="res://Scripts/box.gd" id="1_y2tvp"]
@@ -11,12 +11,6 @@ size = Vector2(10, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_my2hs"]
 size = Vector2(10, 10)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hpj8"]
-size = Vector2(3, 3)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4utw"]
-size = Vector2(3, 3)
 
 [node name="Box" type="RigidBody2D"]
 lock_rotation = true
@@ -47,15 +41,8 @@ collision_mask = 2
 position = Vector2(5, 0)
 shape = SubResource("RectangleShape2D_my2hs")
 
-[node name="CollisionLeft" type="CollisionShape2D" parent="."]
-position = Vector2(-20, 0)
-shape = SubResource("RectangleShape2D_4hpj8")
-disabled = true
-
-[node name="CollisionRight" type="CollisionShape2D" parent="."]
-position = Vector2(20, 0)
-shape = SubResource("RectangleShape2D_x4utw")
-disabled = true
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(-29, 0)
 
 [connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]
 [connection signal="body_exited" from="Left" to="." method="_on_left_body_exited"]

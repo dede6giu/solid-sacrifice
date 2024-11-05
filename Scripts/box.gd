@@ -1,15 +1,69 @@
 extends RigidBody2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var player = null
+var isBeingControlled := false
+var isNearPlayer := false
+var directionPlayer := false # 0: right; 1: left
+@onready var collision_left: CollisionShape2D = $CollisionLeft
+@onready var collision_right: CollisionShape2D = $CollisionRight
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _physics_process(delta: float) -> void:
+	if isNearPlayer:
+		isBeingControlled = Input.is_action_pressed("interact_hold")
+	else:
+		isBeingControlled = false
+	if isBeingControlled:
+		if directionPlayer:
+			collision_left.set_deferred("disabled", false)
+			collision_right.set_deferred("disabled", true)
+		else: 
+			collision_left.set_deferred("disabled", true)
+			collision_right.set_deferred("disabled", false)
+		var direction := Input.get_axis("move_left", "move_right")
+		if direction:
+			linear_velocity.x = player.BOXHOLDSPEED * direction
+		else:
+			linear_velocity.x = move_toward(linear_velocity.x, 0, player.BOXHOLDSPEED)
+		linear_velocity.y = player.velocity.y
+		gravity_scale = 0
+	else:
+		gravity_scale = 1
+		collision_left.set_deferred("disabled", true)
+		collision_right.set_deferred("disabled", true)
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+func enter_area(body: Node2D) -> void:
+	body.isNearBox = true
+	isNearPlayer = true
+	player = body
+	linear_damp = 0
+
+
+func _on_left_body_entered(body: Node2D) -> void:
+	if body:
+		if !body.get_node("./AnimatedSprite2D").flip_h:
+			directionPlayer = true
+			enter_area(body)
+
+func _on_right_body_entered(body: Node2D) -> void:
+	if body:
+		if body.get_node("./AnimatedSprite2D").flip_h:
+			directionPlayer = false
+			enter_area(body)
+
+
+func left_area(body: Node2D) -> void:
+	body.isNearBox = false
+	isNearPlayer = false
+	isBeingControlled = false
+	player = null
+	linear_damp = 0.1
+	collision_left.set_deferred("disabled", false)
+	collision_right.set_deferred("disabled", false)
+
+func _on_left_body_exited(body: Node2D) -> void:
+	left_area(body)
+func _on_right_body_exited(body: Node2D) -> void:
+	left_area(body)
