@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwhog3nowxqbp"]
+
+[ext_resource type="Script" path="res://Scripts/master_scene.gd" id="1_n1vwq"]
+
+[node name="MasterScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_n1vwq")
+
+[node name="HUD" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="Menu" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="Button" type="Button" parent="Menu"]
+offset_left = 512.0
+offset_top = 272.0
+offset_right = 642.0
+offset_bottom = 303.0
+text = "Load game.tscn"
+
+[node name="Button2" type="Button" parent="Menu"]
+offset_left = 528.0
+offset_top = 400.0
+offset_right = 620.0
+offset_bottom = 431.0
+text = "Quit Game"
+
+[node name="Button3" type="Button" parent="Menu"]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 336.0
+offset_right = 637.0
+offset_bottom = 367.0
+text = "Load test.tscn"
+
+[node name="Main2D" type="Node2D" parent="."]
+
+[connection signal="pressed" from="Menu/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Menu/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Menu/Button3" to="." method="_on_button_3_pressed"]
