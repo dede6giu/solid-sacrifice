@@ -304,7 +304,7 @@ texture = ExtResource("1_pnynp")
 18:4/0/texture_origin = Vector2i(0, 24)
 
 [sub_resource type="TileSet" id="TileSet_ack76"]
-physics_layer_0/collision_layer = 5
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ef6bg")
 
 [sub_resource type="Animation" id="Animation_ttu1a"]

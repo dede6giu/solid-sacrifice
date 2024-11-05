@@ -4,6 +4,7 @@ var player = null
 var isBeingControlled := false
 var isNearPlayer := false
 var directionPlayer := false # 0: right; 1: left
+var boxBelow = null
 @onready var collision_left: CollisionShape2D = $CollisionLeft
 @onready var collision_right: CollisionShape2D = $CollisionRight
 
@@ -14,6 +15,7 @@ func _physics_process(delta: float) -> void:
 		isBeingControlled = Input.is_action_pressed("interact_hold")
 	else:
 		isBeingControlled = false
+		
 	if isBeingControlled:
 		if directionPlayer:
 			collision_left.set_deferred("disabled", false)
@@ -29,9 +31,13 @@ func _physics_process(delta: float) -> void:
 		gravity_scale = 0
 		position.y = player.position.y
 	else:
-		gravity_scale = 1
 		collision_left.set_deferred("disabled", true)
 		collision_right.set_deferred("disabled", true)
+	
+		if boxBelow:
+			linear_velocity.x = boxBelow.linear_velocity.x
+		else:
+			gravity_scale = 1
 
 
 func enter_area(body: Node2D) -> void:
@@ -71,3 +77,17 @@ func _on_left_body_exited(body: Node2D) -> void:
 	left_area(body)
 func _on_right_body_exited(body: Node2D) -> void:
 	left_area(body)
+
+
+func _on_box_beneath_area_entered(area: Area2D) -> void:
+	if area:
+		print("entered")
+		print(area)
+		gravity_scale = 0
+		boxBelow = area.get_parent()
+
+func _on_box_beneath_area_exited(area: Area2D) -> void:
+	print("exited")
+	print(area)
+	gravity_scale = 1
+	boxBelow = null

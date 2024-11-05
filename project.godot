@@ -50,7 +50,7 @@ interact_hold={
 
 2d_physics/layer_1="global"
 2d_physics/layer_2="player"
-2d_physics/layer_3="objects"
+2d_physics/layer_3="box"
 
 [rendering]
 
