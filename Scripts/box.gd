@@ -26,8 +26,8 @@ func _physics_process(delta: float) -> void:
 			linear_velocity.x = player.BOXHOLDSPEED * direction
 		else:
 			linear_velocity.x = move_toward(linear_velocity.x, 0, player.BOXHOLDSPEED)
-		linear_velocity.y = player.velocity.y
 		gravity_scale = 0
+		position.y = player.position.y
 	else:
 		gravity_scale = 1
 		collision_left.set_deferred("disabled", true)

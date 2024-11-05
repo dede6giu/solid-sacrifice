@@ -13,10 +13,10 @@ size = Vector2(10, 10)
 size = Vector2(10, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hpj8"]
-size = Vector2(3, 3)
+size = Vector2(0.5, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4utw"]
-size = Vector2(3, 3)
+size = Vector2(0.5, 3)
 
 [node name="Box" type="RigidBody2D"]
 lock_rotation = true
@@ -48,12 +48,12 @@ position = Vector2(5, 0)
 shape = SubResource("RectangleShape2D_my2hs")
 
 [node name="CollisionLeft" type="CollisionShape2D" parent="."]
-position = Vector2(-20, 0)
+position = Vector2(-18.75, 0)
 shape = SubResource("RectangleShape2D_4hpj8")
 disabled = true
 
 [node name="CollisionRight" type="CollisionShape2D" parent="."]
-position = Vector2(20, 0)
+position = Vector2(18.75, 0)
 shape = SubResource("RectangleShape2D_x4utw")
 disabled = true
 

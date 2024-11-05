@@ -238,9 +238,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r8e5h"]
-radius = 5.0
-height = 14.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8s27j"]
+size = Vector2(10, 12)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
@@ -253,8 +252,8 @@ animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_r8e5h")
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_8s27j")
 
 [node name="FreeFallTimer" type="Timer" parent="."]
 wait_time = 0.5

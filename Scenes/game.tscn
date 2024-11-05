@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=4 uid="uid://bn2a6qrtxx6rk"]
+[gd_scene load_steps=13 format=4 uid="uid://bn2a6qrtxx6rk"]
 
 [ext_resource type="PackedScene" uid="uid://mfcgv2lxhelj" path="res://Scenes/player.tscn" id="1_d3xyg"]
 [ext_resource type="Texture2D" uid="uid://cw2a227ffj6m" path="res://Assets/sprites/world_tileset.png" id="2_tscuk"]
 [ext_resource type="PackedScene" uid="uid://dxpd61cq541o3" path="res://Scenes/platform.tscn" id="3_pe2dd"]
 [ext_resource type="PackedScene" uid="uid://dr3n25lp8t06p" path="res://Scenes/box.tscn" id="4_xkxul"]
-[ext_resource type="PackedScene" uid="uid://bpm2umr3xk6as" path="res://Scenes/transition.tscn" id="5_ib6ny"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ef6bg"]
 texture = ExtResource("2_tscuk")
@@ -263,8 +262,6 @@ _data = {
 "RESET": SubResource("Animation_2wdid")
 }
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gdjl3"]
-
 [node name="Game" type="Node2D"]
 
 [node name="TileMap" type="Node2D" parent="."]
@@ -274,11 +271,11 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAD3/wQAAAAIAAEAAAD4/wQAAAAIAAEAAAD5/wQAAAAIAAEAAAD6/wQAAAAIAAEAAAD7/wQAAAAIAAEAAAD8/wQAAAAIAAEAAAD9/wQAAAAIAAEAAAD+/wQAAAAIAAEAAAD//wQAAAAIAAEAAAAAAAQAAAAIAAEAAAABAAQAAAAIAAEAAAACAAQAAAAIAAEAAAADAAQAAAAIAAEAAAAEAAQAAAAIAAEAAAAFAAQAAAAIAAEAAAAGAAQAAAAIAAEAAAAHAAQAAAAIAAEAAAAIAAQAAAAIAAEAAAD3/wMAAAABAAAAAAD3/wIAAAABAAAAAAD4/wIAAAABAAAAAAD4/wMAAAABAAAAAAD5/wMAAAABAAAAAAD5/wIAAAABAAAAAAD3/wEAAAABAAAAAAD3/wAAAAABAAAAAAD3////AAABAAAAAAAIAAMAAAAIAAAAAAAIAAIAAAAIAAAAAAAIAAEAAAAIAAAAAAAIAAAAAAAIAAAAAAAIAP//AAAIAAAAAAAIAP7/AAAIAAAAAAAGAP7/AAAJAAAAAAAHAP7/AAAKAAAAAAA=")
 tile_set = SubResource("TileSet_ack76")
 
-[node name="Player" parent="." instance=ExtResource("1_d3xyg")]
-position = Vector2(76, 28)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="Player" parent="." instance=ExtResource("1_d3xyg")]
+position = Vector2(-109, 16)
 
 [node name="Plataforms" type="Node2D" parent="."]
 
@@ -305,14 +302,6 @@ autoplay = "Platform"
 position = Vector2(-33, -91)
 
 [node name="Boxes" type="Node2D" parent="."]
-position = Vector2(163, 27)
 
 [node name="Box" parent="Boxes" instance=ExtResource("4_xkxul")]
-position = Vector2(-60, 6)
-
-[node name="Area2D" type="StaticBody2D" parent="."]
-position = Vector2(240, 49)
-collision_layer = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("WorldBoundaryShape2D_gdjl3")
+position = Vector2(43, 11)
