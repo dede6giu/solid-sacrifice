@@ -448,9 +448,15 @@ position = Vector2(187, -61)
 [node name="Boxes" type="Node2D" parent="."]
 
 [node name="Box" parent="Boxes" instance=ExtResource("4_xkxul")]
-position = Vector2(154, -25)
+position = Vector2(204, -67)
 
 [node name="Box2" parent="Boxes" instance=ExtResource("4_xkxul")]
-position = Vector2(193, -25)
+position = Vector2(182, -33)
+
+[node name="Box3" parent="Boxes" instance=ExtResource("4_xkxul")]
+position = Vector2(155, -30)
+
+[node name="Box4" parent="Boxes" instance=ExtResource("4_xkxul")]
+position = Vector2(122, -28)
 
 [editable path="Player"]

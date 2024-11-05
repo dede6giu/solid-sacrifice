@@ -35,7 +35,9 @@ func _physics_process(delta: float) -> void:
 		collision_right.set_deferred("disabled", true)
 	
 		if boxBelow:
+			gravity_scale = 0
 			linear_velocity.x = boxBelow.linear_velocity.x
+			linear_velocity.y = 0
 		else:
 			gravity_scale = 1
 
@@ -81,13 +83,9 @@ func _on_right_body_exited(body: Node2D) -> void:
 
 func _on_box_beneath_area_entered(area: Area2D) -> void:
 	if area:
-		print("entered")
-		print(area)
 		gravity_scale = 0
 		boxBelow = area.get_parent()
 
 func _on_box_beneath_area_exited(area: Area2D) -> void:
-	print("exited")
-	print(area)
 	gravity_scale = 1
 	boxBelow = null
