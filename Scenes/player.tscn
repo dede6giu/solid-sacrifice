@@ -1,7 +1,7 @@
 [gd_scene load_steps=31 format=3 uid="uid://mfcgv2lxhelj"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_fh8p8"]
-[ext_resource type="Texture2D" uid="uid://bdwx1q75xeyue" path="res://Necromancer_Sprites.png" id="2_lr5bj"]
+[ext_resource type="Texture2D" uid="uid://bdwx1q75xeyue" path="res://Assets/Necromancer_Sprites.png" id="2_lr5bj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f2w1b"]
 atlas = ExtResource("2_lr5bj")
@@ -244,12 +244,14 @@ height = 14.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
+collision_layer = 2
 script = ExtResource("1_fh8p8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-15, -9)
 sprite_frames = SubResource("SpriteFrames_c7c7e")
-animation = &"FreeFall_A"
+animation = &"Idle"
+autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-15, -8)

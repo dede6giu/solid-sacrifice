@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdwx1q75xeyue"
-path="res://.godot/imported/Necromancer_Sprites.png-8bd41b98f1d56f8b7112e32b8f58bb98.ctex"
+uid="uid://ohb02brmxbh6"
+path="res://.godot/imported/icon.svg-8193eb3d66a1b5143b8bb4c28c1dc139.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Necromancer_Sprites.png"
-dest_files=["res://.godot/imported/Necromancer_Sprites.png-8bd41b98f1d56f8b7112e32b8f58bb98.ctex"]
+source_file="res://Assets/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-8193eb3d66a1b5143b8bb4c28c1dc139.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

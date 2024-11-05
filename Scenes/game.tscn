@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bn2a6qrtxx6rk"]
+[gd_scene load_steps=13 format=3 uid="uid://bn2a6qrtxx6rk"]
 
 [ext_resource type="PackedScene" uid="uid://mfcgv2lxhelj" path="res://Scenes/player.tscn" id="1_d3xyg"]
 [ext_resource type="Texture2D" uid="uid://cw2a227ffj6m" path="res://Assets/sprites/world_tileset.png" id="2_tscuk"]
-[ext_resource type="PackedScene" uid="uid://dxpd61cq541o3" path="res://platform.tscn" id="3_pe2dd"]
+[ext_resource type="PackedScene" uid="uid://dxpd61cq541o3" path="res://Scenes/platform.tscn" id="3_pe2dd"]
+[ext_resource type="PackedScene" uid="uid://dr3n25lp8t06p" path="res://Scenes/box.tscn" id="4_xkxul"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ef6bg"]
 texture = ExtResource("2_tscuk")
@@ -275,24 +276,31 @@ position = Vector2(6, 63)
 position = Vector2(-13, -10)
 zoom = Vector2(4, 4)
 
-[node name="Platform" parent="." instance=ExtResource("3_pe2dd")]
+[node name="Plataforms" type="Node2D" parent="."]
+
+[node name="Platform" parent="Plataforms" instance=ExtResource("3_pe2dd")]
 position = Vector2(-65, -27)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataforms/Platform"]
 libraries = {
 "": SubResource("AnimationLibrary_vad1a")
 }
 autoplay = "move"
 
-[node name="Platform2" parent="." instance=ExtResource("3_pe2dd")]
+[node name="Platform2" parent="Plataforms" instance=ExtResource("3_pe2dd")]
 position = Vector2(-146, -86)
 sync_to_physics = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataforms/Platform2"]
 libraries = {
 "": SubResource("AnimationLibrary_127ag")
 }
 autoplay = "Platform"
 
-[node name="Platform3" parent="." instance=ExtResource("3_pe2dd")]
+[node name="Platform3" parent="Plataforms" instance=ExtResource("3_pe2dd")]
 position = Vector2(-33, -91)
+
+[node name="Box" type="Node2D" parent="."]
+
+[node name="Box" parent="Box" instance=ExtResource("4_xkxul")]
+position = Vector2(-38, -44)
