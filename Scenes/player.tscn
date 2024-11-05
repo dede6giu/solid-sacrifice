@@ -259,4 +259,8 @@ shape = SubResource("RectangleShape2D_8s27j")
 wait_time = 0.5
 one_shot = true
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
 [connection signal="timeout" from="FreeFallTimer" to="." method="_on_free_fall_timer_timeout"]
