@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://bn2a6qrtxx6rk"]
+[gd_scene load_steps=13 format=4 uid="uid://bn2a6qrtxx6rk"]
 
 [ext_resource type="PackedScene" uid="uid://mfcgv2lxhelj" path="res://Scenes/player.tscn" id="1_d3xyg"]
 [ext_resource type="Texture2D" uid="uid://cpqlqgfo3u2h0" path="res://Assets/sprites/Tileset1.png" id="1_pnynp"]
 [ext_resource type="PackedScene" uid="uid://dxpd61cq541o3" path="res://Scenes/platform.tscn" id="3_pe2dd"]
 [ext_resource type="PackedScene" uid="uid://dr3n25lp8t06p" path="res://Scenes/box.tscn" id="4_xkxul"]
-[ext_resource type="PackedScene" uid="uid://d0m7xsfn678o6" path="res://Scenes/key-door.tscn" id="5_ggrih"]
-[ext_resource type="PackedScene" uid="uid://dtsjfxfdxx4sq" path="res://Scenes/spikes.tscn" id="6_bll07"]
+[ext_resource type="PackedScene" path="res://Scenes/key-door.tscn" id="5_ggrih"]
+[ext_resource type="PackedScene" path="res://Scenes/spikes.tscn" id="6_bll07"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ef6bg"]
 texture = ExtResource("1_pnynp")
@@ -309,6 +309,10 @@ texture = ExtResource("1_pnynp")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ef6bg")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r8e5h"]
+radius = 5.0
+height = 14.0
+
 [sub_resource type="Animation" id="Animation_dw67v"]
 length = 0.001
 tracks/0/type = "value"
@@ -369,11 +373,15 @@ tile_set = SubResource("TileSet_ack76")
 [node name="Player" parent="." instance=ExtResource("1_d3xyg")]
 position = Vector2(-83, -26)
 
-[node name="Camera2D" parent="Player" index="3"]
-limit_left = -144
-limit_top = -135
-limit_right = 240
-limit_bottom = 80
+[node name="AnimatedSprite2D" parent="Player" index="0"]
+position = Vector2(-15, -9)
+
+[node name="CollisionShape2D" parent="Player" index="1"]
+position = Vector2(-15, -8)
+shape = SubResource("CapsuleShape2D_r8e5h")
+
+[node name="FreeFallTimer" parent="Player" index="2"]
+wait_time = 0.5
 
 [node name="Plataforms" type="Node2D" parent="."]
 
