@@ -17,21 +17,22 @@ func create_statue(character_position: Vector2):
 	else:
 		newStatue.position = character_position - get_parent().position
 	newStatue.get_node("Box").get_node("AnimatedSprite2D").flip_h = player.get_node("AnimatedSprite2D").flip_h
+	newStatue.get_node("Box").get_node("AnimatedSprite2D").animation_finished.connect(_on_death_finish)
 	add_child(newStatue)
 	print("Spawning at :", character_position)
 
 func _on_body_entered(body: Node2D) -> void:
 	inicial_player_pos = spawn.global_position
 	player = body
-	timer.start()
 	player.hide()
 	#body.get().animated_sprite_2d.play("Death")
 	create_statue(player.global_position)
 	
-func _on_timer_timeout() -> void:
+func _on_death_finish() -> void:
 	if player:
 		print("Current position: ", player.global_position)
 		player.position = inicial_player_pos
 		player.show()
 		print("Respawning on ", player.global_position)
 		player = null
+ 

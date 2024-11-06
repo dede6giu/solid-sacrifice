@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c6yt25k2xkwt5"]
+[gd_scene load_steps=20 format=3 uid="uid://d0m7xsfn678o6"]
 
 [ext_resource type="Script" path="res://Scripts/key-door.gd" id="1_m5v4a"]
 [ext_resource type="Texture2D" uid="uid://c0vqfsltv3fhm" path="res://Assets/sprites/Key.png" id="2_hobf8"]
@@ -110,9 +110,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_japyp"]
 size = Vector2(12, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_loioe"]
-size = Vector2(14, 32)
-
 [node name="Key-Door" type="Node2D"]
 script = ExtResource("1_m5v4a")
 
@@ -132,9 +129,11 @@ frame_progress = 0.959996
 
 [node name="keyCollect" type="Area2D" parent="Key"]
 z_index = 4
+position = Vector2(-24, 0)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key/keyCollect"]
+position = Vector2(24, 0)
 shape = SubResource("RectangleShape2D_1al08")
 
 [node name="Door" type="RigidBody2D" parent="."]
@@ -152,16 +151,3 @@ animation = &"Open"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_japyp")
-
-[node name="DoorArea" type="Area2D" parent="Door"]
-position = Vector2(2, 0)
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/DoorArea"]
-position = Vector2(-1, 0)
-shape = SubResource("RectangleShape2D_loioe")
-
-[connection signal="body_entered" from="Key/keyCollect" to="." method="_on_key_collect_body_entered"]
-[connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
-[connection signal="animation_finished" from="Door/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="body_entered" from="Door/DoorArea" to="." method="_on_door_area_body_entered"]
