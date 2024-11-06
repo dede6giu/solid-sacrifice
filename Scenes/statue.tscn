@@ -110,14 +110,14 @@ animations = [{
 
 [node name="Box" parent="." instance=ExtResource("1_e27dx")]
 
-[node name="Sprite2D" parent="Box" index="0"]
-visible = false
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Box"]
 sprite_frames = SubResource("SpriteFrames_whwrt")
 animation = &"Stone"
 autoplay = "Stone"
 frame = 7
 frame_progress = 1.0
+
+[node name="Sprite2D" parent="Box" index="1"]
+visible = false
 
 [editable path="Box"]

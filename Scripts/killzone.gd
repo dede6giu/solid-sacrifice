@@ -13,8 +13,10 @@ func create_statue(character_position: Vector2):
 	Global.queue_management(newStatue.get_instance_id())
 	if character_position.y >= get_parent().position.y:
 		newStatue.position = - character_position + get_parent().position
+		newStatue.rotation_degrees = -180
 	else:
 		newStatue.position = character_position - get_parent().position
+	newStatue.get_node("Box").get_node("AnimatedSprite2D").flip_h = player.get_node("AnimatedSprite2D").flip_h
 	add_child(newStatue)
 	print("Spawning at :", character_position)
 

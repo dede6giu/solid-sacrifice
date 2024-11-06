@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=4 uid="uid://bn2a6qrtxx6rk"]
+[gd_scene load_steps=13 format=4 uid="uid://bn2a6qrtxx6rk"]
 
 [ext_resource type="PackedScene" uid="uid://mfcgv2lxhelj" path="res://Scenes/player.tscn" id="1_d3xyg"]
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_nlnyc"]
 [ext_resource type="Texture2D" uid="uid://cpqlqgfo3u2h0" path="res://Assets/sprites/Tileset1.png" id="1_pnynp"]
 [ext_resource type="PackedScene" uid="uid://dxpd61cq541o3" path="res://Scenes/platform.tscn" id="3_pe2dd"]
 [ext_resource type="PackedScene" uid="uid://dr3n25lp8t06p" path="res://Scenes/box.tscn" id="4_xkxul"]
@@ -348,6 +349,8 @@ _data = {
 
 [node name="Game" type="Node2D"]
 position = Vector2(1, 0)
+script = ExtResource("1_nlnyc")
+statueAmount = 3
 
 [node name="TileMap" type="Node2D" parent="."]
 
