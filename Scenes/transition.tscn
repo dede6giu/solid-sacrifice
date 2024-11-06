@@ -14,3 +14,4 @@ position = Vector2(-2, -1)
 shape = SubResource("WorldBoundaryShape2D_ihatt")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -264,6 +264,7 @@ _data = {
 }
 
 [node name="Game" type="Node2D"]
+position = Vector2(1, 0)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ack76")
@@ -271,10 +272,10 @@ format = 2
 layer_0/tile_data = PackedInt32Array(327671, 524288, 1, 327672, 524288, 1, 327673, 524288, 1, 327674, 524288, 1, 327675, 524288, 1, 327676, 524288, 1, 327677, 524288, 1, 327678, 524288, 1, 327679, 524288, 1, 262144, 524288, 1, 262145, 524288, 1, 262146, 524288, 1, 262147, 524288, 1, 262148, 524288, 1, 262149, 524288, 1, 262150, 524288, 1, 262151, 524288, 1, 262152, 524288, 1, 262135, 65536, 0, 196599, 65536, 0, 196600, 65536, 0, 262136, 65536, 0, 262137, 65536, 0, 196601, 65536, 0, 131063, 65536, 0, 65527, 65536, 0, -9, 65536, 0, 196616, 524288, 0, 131080, 524288, 0, 65544, 524288, 0, 8, 524288, 0, -65528, 524288, 0, -131064, 524288, 0, -131066, 589824, 0, -131065, 655360, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_d3xyg")]
-position = Vector2(7, 66)
+position = Vector2(-30, 65)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-13, -10)
+position = Vector2(-15, -6)
 zoom = Vector2(4, 4)
 
 [node name="Plataforms" type="Node2D" parent="."]
@@ -307,4 +308,6 @@ position = Vector2(-33, -91)
 position = Vector2(-38, -44)
 
 [node name="Transition" parent="." instance=ExtResource("5_ib6ny")]
-position = Vector2(129, 14)
+position = Vector2(129, 17)
+pos = Vector2(28, 65)
+cena = "Teste"

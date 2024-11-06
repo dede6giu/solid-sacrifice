@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
+[autoload]
+
+Global="*res://Scripts/global.gd"
+
 [input]
 
 move_left={

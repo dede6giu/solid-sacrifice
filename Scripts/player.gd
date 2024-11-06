@@ -1,3 +1,4 @@
+# Player.gd
 extends CharacterBody2D
 
 const SPEED := 130.0
@@ -9,8 +10,30 @@ var isFreeFall := false
 var isHoldingBox := false
 @onready var free_fall_timer: Timer = $FreeFallTimer
 
+var is_position_restored := false  
+
+
+func _ready() -> void:
+	if is_position_restored:
+		return 
+	
+	
+	await get_tree().create_timer(0).timeout 
+
+
+	var current_scene_name = get_tree().current_scene.name
+
+	var saved_position = Global.get_position_for_scene(current_scene_name)
+
+	position = saved_position
+	
+	is_position_restored = true
+	
+	if not is_on_floor():
+		velocity.y = 0  
+		
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	else:
@@ -21,14 +44,11 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("interact_hold"):
 			isHoldingBox = true
 	
-	# Handle jump.
 	if !isHoldingBox and Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		animated_sprite_2d.play("Jump")
 		isJump = true
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("move_left", "move_right")
 	if !isHoldingBox:
 		if direction > 0:
@@ -45,7 +65,7 @@ func _physics_process(delta: float) -> void:
 			isFreeFall = true
 			animated_sprite_2d.play("FreeFall_A")
 			free_fall_timer.start()
-		
+	
 		if direction:
 			velocity.x = direction * SPEED
 		else:
@@ -65,7 +85,7 @@ func _physics_process(delta: float) -> void:
 				animated_sprite_2d.play("Pull")
 			else:
 				animated_sprite_2d.play("Hold_Idle")
-				
+		
 		if direction:
 			velocity.x = direction * BOXHOLDSPEED
 		else:
@@ -73,8 +93,6 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-
 func _on_free_fall_timer_timeout() -> void:
-	if !is_on_floor():
+	if not is_on_floor():
 		animated_sprite_2d.play("FreeFall_B")
-		
