@@ -350,7 +350,6 @@ _data = {
 [node name="Game" type="Node2D"]
 position = Vector2(1, 0)
 script = ExtResource("1_nlnyc")
-statueAmount = 3
 
 [node name="TileMap" type="Node2D" parent="."]
 
