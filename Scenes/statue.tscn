@@ -1,18 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://jo4kfxh1l5af"]
 
-[ext_resource type="Texture2D" uid="uid://dss2cr7y2rf71" path="res://Assets/sprites/NecroStatue.png" id="1_6qjaa"]
 [ext_resource type="PackedScene" uid="uid://dr3n25lp8t06p" path="res://Scenes/box.tscn" id="1_e27dx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_whwrt"]
 
 [node name="Statue" type="Node2D"]
 
 [node name="Box" parent="." instance=ExtResource("1_e27dx")]
 
-[node name="Statue" type="Sprite2D" parent="Box"]
-texture = ExtResource("1_6qjaa")
-region_enabled = true
-region_rect = Rect2(0, 0, 16.2546, 16)
-
-[node name="Sprite2D" parent="Box" index="1"]
+[node name="Sprite2D" parent="Box" index="0"]
 visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_whwrt")
 
 [editable path="Box"]

@@ -369,6 +369,12 @@ tile_set = SubResource("TileSet_ack76")
 [node name="Player" parent="." instance=ExtResource("1_d3xyg")]
 position = Vector2(-71, -15)
 
+[node name="Camera2D" parent="Player" index="3"]
+limit_left = -143
+limit_top = -140
+limit_right = 241
+limit_bottom = 76
+
 [node name="Plataforms" type="Node2D" parent="."]
 
 [node name="Platform" parent="Plataforms" instance=ExtResource("3_pe2dd")]
@@ -405,7 +411,11 @@ position = Vector2(153, 48)
 [node name="Spikes" type="Node2D" parent="."]
 
 [node name="Spikes0" parent="Spikes" instance=ExtResource("6_bll07")]
-position = Vector2(-30, 24)
+position = Vector2(15, -52)
+rotation = -3.14159
+
+[node name="Spikes1" parent="Spikes" instance=ExtResource("6_bll07")]
+position = Vector2(-29, 17)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(-71, -15)

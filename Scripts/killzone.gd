@@ -11,7 +11,10 @@ func _ready():
 func create_statue(character_position: Vector2):
 	var newStatue = statuePath.instantiate()
 	print("aaaaaaa")
-	newStatue.position = character_position - get_parent().position
+	if character_position.y >= get_parent().position.y:
+		newStatue.position = - character_position + get_parent().position
+	else:
+		newStatue.position = character_position - get_parent().position
 	add_child(newStatue)
 	print("Spawning at :", character_position)
 
