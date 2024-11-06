@@ -5,8 +5,10 @@ extends Node2D
 @onready var door_sprite: AnimatedSprite2D = $Door/AnimatedSprite2D
 @onready var key_sprite: AnimatedSprite2D = $Key/AnimatedSprite2D
 @onready var door_hitbox: CollisionShape2D = $Door/CollisionShape2D
+@onready var door_area: Area2D = $Door/DoorArea
 var collected := false
 var player = null
+
 
 func open_door():
 	door_sprite.play("Open")
@@ -14,13 +16,16 @@ func open_door():
 func _on_key_collect_body_entered(body: Node2D) -> void:
 	key_collect.set_deferred("monitoring", false)
 	collected = true
+	Global.chaves.push_back(key)
 	player = body
-	
+	print(Global.chaves)
 func _on_door_area_body_entered(body: Node2D) -> void:
-	if collected:
-		collected = false
-		key.hide()
+	if Global.chaves.size() >= 1:
+		Global.chaves.pop_front().hide()
 		open_door()
+		door_area.set_deferred("monitoring", false)
+		collected = false
+		print(Global.chaves)
 
 func _physics_process(delta):	
 	if collected:

@@ -2,9 +2,11 @@ extends Node2D
 
 static var saved_positions = {}
 
-static var statue_limit = 2
+static var statue_limit = 2;
 static var box_queue = []
 static var statueBreak = null
+
+static var chaves = []
 
 static func queue_management(id: int) -> void:
 	box_queue.push_back(id)
