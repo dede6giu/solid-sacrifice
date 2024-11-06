@@ -1,0 +1,145 @@
+[gd_scene load_steps=20 format=3 uid="uid://d0m7xsfn678o6"]
+
+[ext_resource type="Script" path="res://Scripts/key-door.gd" id="1_m5v4a"]
+[ext_resource type="Texture2D" uid="uid://c0vqfsltv3fhm" path="res://Assets/sprites/Key.png" id="2_hobf8"]
+[ext_resource type="Texture2D" uid="uid://b6jagrg3hdkx4" path="res://Assets/sprites/Doors.png" id="3_kc6l6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u44t1"]
+atlas = ExtResource("2_hobf8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksgm8"]
+atlas = ExtResource("2_hobf8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1htev"]
+atlas = ExtResource("2_hobf8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cacri"]
+atlas = ExtResource("2_hobf8")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mihb"]
+atlas = ExtResource("2_hobf8")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyp85"]
+atlas = ExtResource("2_hobf8")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ra5i"]
+atlas = ExtResource("2_hobf8")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2blil"]
+atlas = ExtResource("2_hobf8")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x3q26"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u44t1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksgm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1htev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cacri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mihb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyp85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ra5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2blil")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1al08"]
+size = Vector2(10, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cn7j"]
+atlas = ExtResource("3_kc6l6")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50cqo"]
+atlas = ExtResource("3_kc6l6")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao5ew"]
+atlas = ExtResource("3_kc6l6")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w4gj"]
+atlas = ExtResource("3_kc6l6")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_11nyl"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_4cn7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50cqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ao5ew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w4gj")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_japyp"]
+size = Vector2(16, 32)
+
+[node name="Key-Door" type="Node2D"]
+script = ExtResource("1_m5v4a")
+
+[node name="Key" type="Area2D" parent="."]
+z_index = 4
+position = Vector2(-24, 0)
+collision_mask = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Key"]
+sprite_frames = SubResource("SpriteFrames_x3q26")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.959996
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key"]
+shape = SubResource("RectangleShape2D_1al08")
+
+[node name="Door" type="RigidBody2D" parent="."]
+position = Vector2(24, 0)
+collision_mask = 0
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Door"]
+z_index = 4
+sprite_frames = SubResource("SpriteFrames_11nyl")
+animation = &"Open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+shape = SubResource("RectangleShape2D_japyp")
+
+[connection signal="body_entered" from="Key" to="." method="_on_key_body_entered"]
