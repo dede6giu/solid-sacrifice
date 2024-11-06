@@ -1,7 +1,7 @@
 [gd_scene load_steps=31 format=3 uid="uid://mfcgv2lxhelj"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_fh8p8"]
-[ext_resource type="Texture2D" uid="uid://bdwx1q75xeyue" path="res://Assets/sprites/Necromancer_Sprites.png" id="2_lr5bj"]
+[ext_resource type="Texture2D" uid="uid://bdwx1q75xeyue" path="res://Assets/Necromancer_Sprites.png" id="2_lr5bj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f2w1b"]
 atlas = ExtResource("2_lr5bj")
@@ -238,8 +238,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8s27j"]
-size = Vector2(10, 12)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r8e5h"]
+radius = 5.0
+height = 14.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
@@ -252,15 +253,11 @@ animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_8s27j")
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_r8e5h")
 
 [node name="FreeFallTimer" type="Timer" parent="."]
-wait_time = 0.36
+wait_time = 0.5
 one_shot = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
-position_smoothing_enabled = true
 
 [connection signal="timeout" from="FreeFallTimer" to="." method="_on_free_fall_timer_timeout"]

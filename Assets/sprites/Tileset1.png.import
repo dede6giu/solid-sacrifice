@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdwx1q75xeyue"
-path="res://.godot/imported/Necromancer_Sprites.png-da18c4668a3d77121cba13bbe27d37bf.ctex"
+uid="uid://cpqlqgfo3u2h0"
+path="res://.godot/imported/Tileset1.png-cf189ca7bce743b82711445ff97caaeb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Necromancer_Sprites.png"
-dest_files=["res://.godot/imported/Necromancer_Sprites.png-da18c4668a3d77121cba13bbe27d37bf.ctex"]
+source_file="res://Assets/sprites/Tileset1.png"
+dest_files=["res://.godot/imported/Tileset1.png-cf189ca7bce743b82711445ff97caaeb.ctex"]
 
 [params]
 

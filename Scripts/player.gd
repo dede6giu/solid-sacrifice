@@ -1,13 +1,15 @@
 # Player.gd
 extends CharacterBody2D
 
-const SPEED := 130.0
+const SPEED := 100.0
 const BOXHOLDSPEED := SPEED / 2
-const JUMP_VELOCITY := -300.0
+const JUMP_VELOCITY := -150.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var isJump := false
 var isFreeFall := false
 var isHoldingBox := false
+var isNearBox := false
+var heldBoxID = null
 @onready var free_fall_timer: Timer = $FreeFallTimer
 
 var is_position_restored := false  
@@ -40,10 +42,12 @@ func _physics_process(delta: float) -> void:
 		isJump = false
 		isFreeFall = false
 		free_fall_timer.stop()
-		isHoldingBox = false
-		if Input.is_action_pressed("interact_hold"):
+		if isNearBox and Input.is_action_pressed("interact_hold"):
 			isHoldingBox = true
-	
+		else:
+			isHoldingBox = false
+
+	# Handle jump.
 	if !isHoldingBox and Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		animated_sprite_2d.play("Jump")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcm4sjju8sgmy"
-path="res://.godot/imported/knight.png-f2df08b890c4ea830c735d8e0f73a8e2.ctex"
+uid="uid://db4qp5snnhia4"
+path="res://.godot/imported/Spikes_yikes.png-99d334ec6945efebf1ea58918f36dafe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/knight.png"
-dest_files=["res://.godot/imported/knight.png-f2df08b890c4ea830c735d8e0f73a8e2.ctex"]
+source_file="res://Assets/sprites/Spikes_yikes.png"
+dest_files=["res://.godot/imported/Spikes_yikes.png-99d334ec6945efebf1ea58918f36dafe.ctex"]
 
 [params]
 

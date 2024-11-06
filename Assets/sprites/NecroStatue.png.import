@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpxw880h0kse3"
-path="res://.godot/imported/platforms.png-102ba142b90069627c83acab39f3928e.ctex"
+uid="uid://dss2cr7y2rf71"
+path="res://.godot/imported/NecroStatue.png-49719199ae827663384dd1f3e9b67f89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/platforms.png"
-dest_files=["res://.godot/imported/platforms.png-102ba142b90069627c83acab39f3928e.ctex"]
+source_file="res://Assets/sprites/NecroStatue.png"
+dest_files=["res://.godot/imported/NecroStatue.png-49719199ae827663384dd1f3e9b67f89.ctex"]
 
 [params]
 
