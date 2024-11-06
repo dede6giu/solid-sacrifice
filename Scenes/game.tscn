@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dxpd61cq541o3" path="res://Scenes/platform.tscn" id="3_pe2dd"]
 [ext_resource type="PackedScene" uid="uid://dr3n25lp8t06p" path="res://Scenes/box.tscn" id="4_xkxul"]
 [ext_resource type="PackedScene" uid="uid://c6yt25k2xkwt5" path="res://Scenes/key-door.tscn" id="5_ggrih"]
-[ext_resource type="PackedScene" path="res://Scenes/spikes.tscn" id="6_bll07"]
 [ext_resource type="PackedScene" uid="uid://dtsjfxfdxx4sq" path="res://Scenes/spikes.tscn" id="6_bll07"]
 [ext_resource type="PackedScene" uid="uid://bysksk2821t4j" path="res://Scenes/Button - Door.tscn" id="8_6httl"]
 
@@ -425,7 +424,7 @@ position = Vector2(-88, -10)
 position = Vector2(-117, -18)
 
 [node name="Door" parent="Key - Doors/Key-Door" index="1"]
-position = Vector2(-22, 48)
+position = Vector2(216, -32)
 
 [node name="Key-Door2" parent="Key - Doors" instance=ExtResource("5_ggrih")]
 
