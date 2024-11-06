@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dxpd61cq541o3" path="res://Scenes/platform.tscn" id="3_pe2dd"]
 [ext_resource type="PackedScene" uid="uid://dr3n25lp8t06p" path="res://Scenes/box.tscn" id="4_xkxul"]
 [ext_resource type="PackedScene" uid="uid://c6yt25k2xkwt5" path="res://Scenes/key-door.tscn" id="5_ggrih"]
-[ext_resource type="PackedScene" path="res://Scenes/spikes.tscn" id="6_bll07"]
-[ext_resource type="PackedScene" uid="uid://bpm2umr3xk6as" path="res://Scenes/transition.tscn" id="8_fi17w"]
+[ext_resource type="PackedScene" uid="uid://dtsjfxfdxx4sq" path="res://Scenes/spikes.tscn" id="6_bll07"]
+[ext_resource type="PackedScene" uid="uid://bysksk2821t4j" path="res://Scenes/Button - Door.tscn" id="8_6httl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ef6bg"]
 texture = ExtResource("1_pnynp")
@@ -424,7 +424,7 @@ position = Vector2(-88, -10)
 position = Vector2(-117, -18)
 
 [node name="Door" parent="Key - Doors/Key-Door" index="1"]
-position = Vector2(-22, 48)
+position = Vector2(216, -32)
 
 [node name="Key-Door2" parent="Key - Doors" instance=ExtResource("5_ggrih")]
 
@@ -434,9 +434,17 @@ position = Vector2(-50, -11)
 [node name="Door" parent="Key - Doors/Key-Door2" index="1"]
 position = Vector2(184, 49)
 
-[node name="Transition" parent="." instance=ExtResource("8_fi17w")]
-position = Vector2(216, 46)
+[node name="Button-Door" type="Node2D" parent="."]
+
+[node name="button-door1" parent="Button-Door" instance=ExtResource("8_6httl")]
+
+[node name="Plate" parent="Button-Door/button-door1" index="0"]
+position = Vector2(-18, 56)
+
+[node name="Door" parent="Button-Door/button-door1" index="1"]
+position = Vector2(-65, 56)
 
 [editable path="Player"]
 [editable path="Key - Doors/Key-Door"]
 [editable path="Key - Doors/Key-Door2"]
+[editable path="Button-Door/button-door1"]
