@@ -10,7 +10,7 @@ func _ready():
 
 func create_statue(character_position: Vector2):
 	var newStatue = statuePath.instantiate()
-	print("aaaaaaa")
+	Global.queue_management(newStatue.get_instance_id())
 	if character_position.y >= get_parent().position.y:
 		newStatue.position = - character_position + get_parent().position
 	else:
@@ -21,10 +21,8 @@ func create_statue(character_position: Vector2):
 func _on_body_entered(body: Node2D) -> void:
 	inicial_player_pos = spawn.global_position
 	player = body
-	print("Check player exists ", player)
-	print("You died")
 	timer.start()
-	print("Player died on ", player.global_position)
+	player.hide()
 	#body.get().animated_sprite_2d.play("Death")
 	create_statue(player.global_position)
 	
@@ -32,5 +30,6 @@ func _on_timer_timeout() -> void:
 	if player:
 		print("Current position: ", player.global_position)
 		player.position = inicial_player_pos
+		player.show()
 		print("Respawning on ", player.global_position)
 		player = null

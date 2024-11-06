@@ -1,8 +1,110 @@
-[gd_scene load_steps=3 format=3 uid="uid://jo4kfxh1l5af"]
+[gd_scene load_steps=17 format=3 uid="uid://jo4kfxh1l5af"]
 
 [ext_resource type="PackedScene" uid="uid://dr3n25lp8t06p" path="res://Scenes/box.tscn" id="1_e27dx"]
+[ext_resource type="Texture2D" uid="uid://dss2cr7y2rf71" path="res://Assets/sprites/NecroStatue.png" id="2_e42d7"]
+[ext_resource type="Texture2D" uid="uid://bdwx1q75xeyue" path="res://Assets/sprites/Necromancer_Sprites.png" id="3_0ikgb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2gfr"]
+atlas = ExtResource("2_e42d7")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7p33"]
+atlas = ExtResource("2_e42d7")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0uarf"]
+atlas = ExtResource("2_e42d7")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4afl"]
+atlas = ExtResource("2_e42d7")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pymt"]
+atlas = ExtResource("3_0ikgb")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilds3"]
+atlas = ExtResource("3_0ikgb")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uovg6"]
+atlas = ExtResource("3_0ikgb")
+region = Rect2(128, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbv44"]
+atlas = ExtResource("3_0ikgb")
+region = Rect2(128, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oikr"]
+atlas = ExtResource("3_0ikgb")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lal80"]
+atlas = ExtResource("3_0ikgb")
+region = Rect2(144, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo847"]
+atlas = ExtResource("3_0ikgb")
+region = Rect2(144, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wijde"]
+atlas = ExtResource("3_0ikgb")
+region = Rect2(144, 48, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_whwrt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2gfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7p33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0uarf")
+}],
+"loop": false,
+"name": &"Break",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4afl")
+}],
+"loop": true,
+"name": &"Crack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pymt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilds3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uovg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbv44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oikr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lal80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo847")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wijde")
+}],
+"loop": false,
+"name": &"Stone",
+"speed": 5.0
+}]
 
 [node name="Statue" type="Node2D"]
 
@@ -13,5 +115,9 @@ visible = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_whwrt")
+animation = &"Stone"
+autoplay = "Stone"
+frame = 7
+frame_progress = 1.0
 
 [editable path="Box"]
