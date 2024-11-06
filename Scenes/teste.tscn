@@ -170,7 +170,7 @@ layer_0/tile_data = PackedInt32Array(262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 2
 position = Vector2(46, 44)
 
 [node name="Transition" parent="." instance=ExtResource("3_renaj")]
-position = Vector2(4, 15)
+position = Vector2(44, 98)
 rotation = -3.11929
 path = "res://Scenes/game.tscn"
 pos = Vector2(124, 65)

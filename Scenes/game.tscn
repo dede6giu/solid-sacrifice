@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bn2a6qrtxx6rk"]
+[gd_scene load_steps=14 format=4 uid="uid://bn2a6qrtxx6rk"]
 
 [ext_resource type="PackedScene" uid="uid://mfcgv2lxhelj" path="res://Scenes/player.tscn" id="1_d3xyg"]
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_nlnyc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dr3n25lp8t06p" path="res://Scenes/box.tscn" id="4_xkxul"]
 [ext_resource type="PackedScene" uid="uid://c6yt25k2xkwt5" path="res://Scenes/key-door.tscn" id="5_ggrih"]
 [ext_resource type="PackedScene" path="res://Scenes/spikes.tscn" id="6_bll07"]
+[ext_resource type="PackedScene" uid="uid://bpm2umr3xk6as" path="res://Scenes/transition.tscn" id="8_fi17w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ef6bg"]
 texture = ExtResource("1_pnynp")
@@ -432,6 +433,9 @@ position = Vector2(-50, -11)
 
 [node name="Door" parent="Key - Doors/Key-Door2" index="1"]
 position = Vector2(184, 49)
+
+[node name="Transition" parent="." instance=ExtResource("8_fi17w")]
+position = Vector2(216, 46)
 
 [editable path="Player"]
 [editable path="Key - Doors/Key-Door"]

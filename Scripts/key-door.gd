@@ -18,14 +18,12 @@ func _on_key_collect_body_entered(body: Node2D) -> void:
 	collected = true
 	Global.chaves.push_back(key)
 	player = body
-	print(Global.chaves)
 func _on_door_area_body_entered(body: Node2D) -> void:
 	if Global.chaves.size() >= 1:
 		Global.chaves.pop_front().hide()
 		open_door()
 		door_area.set_deferred("monitoring", false)
 		collected = false
-		print(Global.chaves)
 
 func _physics_process(delta):	
 	if collected:

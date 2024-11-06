@@ -8,6 +8,14 @@ static var statueBreak = null
 
 static var chaves = []
 
+func Reset(id: int, path: String) -> void:
+	var current_scene_name = instance_from_id(id).name
+	var nextMap = ResourceLoader.load(path).instantiate()
+	instance_from_id(id).get_parent().add_child(nextMap)
+	instance_from_id(id).queue_free()
+	chaves.clear()
+	box_queue.clear()
+
 static func queue_management(id: int) -> void:
 	box_queue.push_back(id)
 	if box_queue.size() > statue_limit:

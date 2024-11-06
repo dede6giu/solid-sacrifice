@@ -18,13 +18,11 @@ var is_position_restored := false
 func _ready() -> void:
 	if is_position_restored:
 		return 
-	
-	
 	await get_tree().create_timer(0).timeout 
 
 
-	var current_scene_name = get_parent().name
-
+	var current_scene_name = str(get_parent().get_instance_id())
+	Global.save_position_for_scene(current_scene_name, get_parent().get_node("SpawnPoint").position)
 	var saved_position = Global.get_position_for_scene(current_scene_name)
 	position = saved_position
 	
@@ -36,6 +34,9 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("Reset"):
+		Global.Reset(get_parent().get_instance_id(), get_parent().levelPath)
+		return
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	else:
