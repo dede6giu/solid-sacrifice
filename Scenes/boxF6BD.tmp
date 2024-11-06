@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://dr3n25lp8t06p"]
+
+[ext_resource type="Texture2D" uid="uid://cm32bytp7ywab" path="res://Assets/Box.png" id="1_0csh1"]
+[ext_resource type="Script" path="res://Scripts/box.gd" id="1_y2tvp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ry7xj"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7veei"]
+size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_my2hs"]
+size = Vector2(10, 10)
+
+[node name="Box" type="RigidBody2D"]
+lock_rotation = true
+freeze_mode = 1
+linear_damp_mode = 1
+script = ExtResource("1_y2tvp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0csh1")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ry7xj")
+
+[node name="Left" type="Area2D" parent="."]
+collision_mask = 2
+gravity_space_override = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+position = Vector2(-5, 0)
+shape = SubResource("RectangleShape2D_7veei")
+
+[node name="Right" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+position = Vector2(5, 0)
+shape = SubResource("RectangleShape2D_my2hs")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(-29, 0)
+
+[connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]
+[connection signal="body_exited" from="Left" to="." method="_on_left_body_exited"]
+[connection signal="body_entered" from="Right" to="." method="_on_right_body_entered"]
+[connection signal="body_exited" from="Right" to="." method="_on_right_body_exited"]

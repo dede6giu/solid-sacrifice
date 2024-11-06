@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxpd61cq541o3"]
+
+[ext_resource type="Texture2D" uid="uid://b6jagrg3hdkx4" path="res://Assets/sprites/Doors.png" id="1_lo6er"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ra1p"]
+size = Vector2(40, 9)
+
+[node name="Platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(107.75, 63)
+scale = Vector2(1.26563, 1)
+texture = ExtResource("1_lo6er")
+region_enabled = true
+region_rect = Rect2(16, 16, 32, 9.54642)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(108, 63)
+shape = SubResource("RectangleShape2D_4ra1p")
+one_way_collision = true
