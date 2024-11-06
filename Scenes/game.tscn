@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://bn2a6qrtxx6rk"]
+[gd_scene load_steps=12 format=4 uid="uid://bn2a6qrtxx6rk"]
 
 [ext_resource type="PackedScene" uid="uid://mfcgv2lxhelj" path="res://Scenes/player.tscn" id="1_d3xyg"]
-[ext_resource type="Texture2D" uid="uid://c0w2jkhu17fau" path="res://Assets/sprites/Tileset1.png" id="1_pnynp"]
+[ext_resource type="Texture2D" uid="uid://cpqlqgfo3u2h0" path="res://Assets/sprites/Tileset1.png" id="1_pnynp"]
 [ext_resource type="PackedScene" uid="uid://dxpd61cq541o3" path="res://Scenes/platform.tscn" id="3_pe2dd"]
 [ext_resource type="PackedScene" uid="uid://dr3n25lp8t06p" path="res://Scenes/box.tscn" id="4_xkxul"]
 [ext_resource type="PackedScene" uid="uid://d0m7xsfn678o6" path="res://Scenes/key-door.tscn" id="5_ggrih"]
+[ext_resource type="PackedScene" uid="uid://dtsjfxfdxx4sq" path="res://Scenes/spikes.tscn" id="6_bll07"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ef6bg"]
 texture = ExtResource("1_pnynp")
@@ -405,6 +406,11 @@ position = Vector2(-111, -23)
 
 [node name="Door" parent="Key-Door" index="1"]
 position = Vector2(153, 48)
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Spikes0" parent="Spikes" instance=ExtResource("6_bll07")]
+position = Vector2(-30, 24)
 
 [editable path="Player"]
 [editable path="Key-Door"]
