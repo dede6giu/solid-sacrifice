@@ -15,13 +15,13 @@ run/main_scene="res://Scenes/master_scene.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
-[dotnet]
-
-project/assembly_name="GameJam"
-
 [autoload]
 
 Global="*res://Scripts/global.gd"
+
+[dotnet]
+
+project/assembly_name="GameJam"
 
 [input]
 

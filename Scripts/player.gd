@@ -23,10 +23,9 @@ func _ready() -> void:
 	await get_tree().create_timer(0).timeout 
 
 
-	var current_scene_name = get_tree().current_scene.name
+	var current_scene_name = get_parent().name
 
 	var saved_position = Global.get_position_for_scene(current_scene_name)
-
 	position = saved_position
 	
 	is_position_restored = true

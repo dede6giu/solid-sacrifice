@@ -18,6 +18,7 @@ func load_level(level_name: String) -> void:
 	var level_resource : PackedScene = load(level_path)
 	if level_resource:
 		level_instance = level_resource.instantiate()
+		Global.save_position_for_scene(level_name, level_instance.get_node("SpawnPoint").position)
 		main_2d.add_child(level_instance)
 
 func hideUI() -> void:
