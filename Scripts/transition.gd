@@ -6,6 +6,7 @@ var player = null
 
 func _on_body_entered(body: Node2D) -> void:
 	player = body
+	Global.box_queue.clear()
 	TransitionAnimation.changeScene("RightToLeft")
 	player.isDead = true
 
