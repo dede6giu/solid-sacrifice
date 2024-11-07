@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bvpws0ktrdva1"]
+[gd_scene load_steps=11 format=4 uid="uid://bvpws0ktrdva1"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_nlx27"]
 [ext_resource type="TileSet" uid="uid://btj3oh8wvdc2m" path="res://Assets/sprites/tileset.tres" id="2_b20wn"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dr3n25lp8t06p" path="res://Scenes/box.tscn" id="5_w8exi"]
 [ext_resource type="PackedScene" uid="uid://bos6uwg4woc4q" path="res://Scenes/spikes.tscn" id="6_i53rs"]
 [ext_resource type="FontFile" uid="uid://dia75cxwyi1q8" path="res://Assets/fonts/gomarice_no_continue.ttf" id="6_uisj6"]
+[ext_resource type="PackedScene" uid="uid://bpm2umr3xk6as" path="res://Scenes/transition.tscn" id="7_ewcqb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6lacm"]
 font = ExtResource("6_uisj6")
@@ -161,5 +162,9 @@ variáveis globais
 label_settings = SubResource("LabelSettings_d13mp")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Transitions" type="Node2D" parent="."]
+
+[node name="Transition" parent="Transitions" instance=ExtResource("7_ewcqb")]
 
 [editable path="Player"]

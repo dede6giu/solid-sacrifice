@@ -1,15 +1,26 @@
 extends Node2D
 
-static var saved_positions = {}
+static var musicPlaying := false
+static var comingFromMenu := false
+static var goingToMenu = null
 
-static var statue_limit = 2;
+static var saved_positions = {}
+static var statue_limit = 2
 static var box_queue = []
 static var statueBreak = null
-
 static var statueBreaking = false
 static var statueCracking = false
-
 static var chaves = []
+
+func VariableReset():
+	saved_positions = {}
+	statue_limit = 2
+	box_queue = []
+	statueBreak = null
+	statueBreaking = false
+	statueCracking = false
+	chaves = []
+	
 
 func Reset(id: int, path: String) -> void:
 	var current_scene_name = instance_from_id(id).name

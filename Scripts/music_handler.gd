@@ -4,5 +4,7 @@ extends AudioStreamPlayer2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	play()
-	effects_handler.play("Volume Fade In")
+	if !Global.musicPlaying:
+		Global.musicPlaying = true
+		play()
+		effects_handler.play("Volume Fade In")

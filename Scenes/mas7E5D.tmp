@@ -106,8 +106,6 @@ position = Vector2(-432, 216)
 
 [node name="Transition" parent="Transitions" instance=ExtResource("5_hc2df")]
 position = Vector2(-136, 8)
-monitoring = false
-monitorable = false
 path = "res://Scenes/level0.tscn"
 
 [connection signal="pressed" from="Menu/Button" to="." method="_on_button_pressed"]

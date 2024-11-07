@@ -6,6 +6,11 @@ extends Control
 var level_instance : Node2D
 @onready var main_2d: Node2D = $Main2D
 @onready var menu: Control = $Menu
+@onready var hud: CanvasLayer = $HUD
+@onready var to_menu: Button = $"HUD/To Menu"
+
+func _ready() -> void:
+	hud.set_deferred("visible", false)
 
 func unload_level() -> void:
 	if is_instance_valid(level_instance):
@@ -29,9 +34,11 @@ func showUI() -> void:
 
 
 func _on_button_pressed() -> void:
-	hideUI()
-	load_level("levels/level0")
 	btn_game.release_focus()
+	hideUI()
+	Global.comingFromMenu = true
+	TransitionAnimation.changeScene("RightToLeft")
+	hud.set_deferred("visible", true)
 
 
 func _on_button_2_pressed() -> void:
@@ -39,7 +46,11 @@ func _on_button_2_pressed() -> void:
 	get_tree().quit()
 
 
-func _on_button_3_pressed() -> void:
-	hideUI()
-	load_level("levels/level6")
-	btn_teste.release_focus()
+func _on_to_menu_pressed() -> void:
+	to_menu.release_focus()
+	hud.set_deferred("visible", false)
+	var activeMaps = get_node("Main2D").get_children()[0]
+	Global.goingToMenu = activeMaps
+	Global.VariableReset()
+	TransitionAnimation.changeScene("RightToLeft")
+	showUI()

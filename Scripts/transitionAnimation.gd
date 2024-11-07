@@ -14,4 +14,3 @@ func transition_RightToLeft():
 
 func transition_OpenToLeft():
 	animated_transition.play("OpenToLeft")
-	await animated_transition.animation_finished
