@@ -18,7 +18,7 @@ var is_position_restored := false
 func _ready() -> void:
 	if is_position_restored:
 		return 
-	await get_tree().create_timer(0).timeout 
+	await get_tree().create_timer(0).timeout
 
 
 	var current_scene_name = str(get_parent().get_instance_id())

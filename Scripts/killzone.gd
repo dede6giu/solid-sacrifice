@@ -1,12 +1,8 @@
 extends Area2D
-@onready var timer = $Timer
 var player = null
 var inicial_player_pos = Vector2()
 @onready var spawn = get_parent().get_parent().get_parent().get_node("SpawnPoint")
 var statuePath = preload("res://Scenes/statue.tscn")
-
-func _ready():
-	print(spawn)
 
 func create_statue(character_position: Vector2):
 	var newStatue = statuePath.instantiate()
@@ -20,7 +16,7 @@ func create_statue(character_position: Vector2):
 	newStatue.get_node("Box").get_node("AnimatedSprite2D").animation_finished.connect(_on_death_finish)
 	add_child(newStatue)
 	print("Spawning at :", character_position)
-
+	
 func _on_body_entered(body: Node2D) -> void:
 	inicial_player_pos = spawn.global_position
 	player = body

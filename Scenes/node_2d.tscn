@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://fl7l1ut3c45d"]
+
+[ext_resource type="Script" path="res://Scripts/global.gd" id="1_15avd"]
+
+[node name="Global_Scane_Positions" type="Node2D"]
+script = ExtResource("1_15avd")

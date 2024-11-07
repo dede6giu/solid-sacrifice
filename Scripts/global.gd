@@ -30,7 +30,7 @@ static func queue_management(id: int) -> void:
 	
 static func _on_box_death():
 	statueBreak.queue_free()
-	statueBreak = null 
+	statueBreak = null
 	
 static func save_position_for_scene(scene_name: String, position: Vector2) -> void:
 	saved_positions[scene_name.to_lower()] = position

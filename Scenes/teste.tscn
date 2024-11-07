@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=4 uid="uid://63n06bchigt7"]
+[gd_scene load_steps=6 format=4 uid="uid://63n06bchigt7"]
 
-[ext_resource type="TileSet" uid="uid://bsskhgusly8ww" path="res://Assets/sprites/tileset.tres" id="1_w0ob7"]
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_ndj4a"]
+[ext_resource type="TileSet" uid="uid://btj3oh8wvdc2m" path="res://Assets/sprites/tileset.tres" id="1_w0ob7"]
 [ext_resource type="PackedScene" uid="uid://mfcgv2lxhelj" path="res://Scenes/player.tscn" id="2_rk70f"]
 [ext_resource type="PackedScene" uid="uid://dr3n25lp8t06p" path="res://Scenes/box.tscn" id="3_d06cu"]
-[ext_resource type="PackedScene" uid="uid://dtsjfxfdxx4sq" path="res://Scenes/spikes.tscn" id="4_urwgb"]
+[ext_resource type="PackedScene" uid="uid://bos6uwg4woc4q" path="res://Scenes/spikes.tscn" id="4_urwgb"]
 
 [node name="Teste" type="Node2D"]
+script = ExtResource("1_ndj4a")
+levelPath = "res://Scenes/teste.tscn"
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(32, -32)

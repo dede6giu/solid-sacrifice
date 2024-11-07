@@ -92,9 +92,15 @@ input_pickable = false
 position = Vector2(0, -6.5)
 shape = SubResource("RectangleShape2D_6tjwq")
 
+[node name="Collision Check" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.1
+autostart = true
+
 [connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]
 [connection signal="body_exited" from="Left" to="." method="_on_left_body_exited"]
 [connection signal="body_entered" from="Right" to="." method="_on_right_body_entered"]
 [connection signal="body_exited" from="Right" to="." method="_on_right_body_exited"]
 [connection signal="area_entered" from="Box Beneath" to="." method="_on_box_beneath_area_entered"]
 [connection signal="area_exited" from="Box Beneath" to="." method="_on_box_beneath_area_exited"]
+[connection signal="timeout" from="Collision Check" to="." method="_on_collision_check_timeout"]

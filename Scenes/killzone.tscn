@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/killzone.gd" id="1_d73hx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knygg"]
-size = Vector2(30, 13)
+size = Vector2(30, 15)
 
 [node name="Killzone" type="Area2D"]
 collision_mask = 2

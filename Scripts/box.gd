@@ -7,10 +7,12 @@ var directionPlayer := false # 0: right; 1: left
 var boxBelow = null
 @onready var collision_left: CollisionShape2D = $CollisionLeft
 @onready var collision_right: CollisionShape2D = $CollisionRight
+@onready var collision_check: Timer = $"Collision Check"
+@onready var box_beneath: Area2D = $"Box Beneath"
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	
 func _physics_process(delta: float) -> void:
+	collision_check.autostart = true
 	if isNearPlayer and player.heldBoxID == get_instance_id():
 		isBeingControlled = Input.is_action_pressed("interact_hold")
 	else:
@@ -34,11 +36,13 @@ func _physics_process(delta: float) -> void:
 		collision_right.set_deferred("disabled", true)
 	
 		if boxBelow:
-			gravity_scale = 0
+			gravity_scale = 1
 			linear_velocity.x = boxBelow.linear_velocity.x
 			linear_velocity.y = 0
+
 		else:
 			gravity_scale = 1
+	linear_velocity.y += 1
 
 
 func enter_area(body: Node2D) -> void:
@@ -78,8 +82,7 @@ func _on_left_body_exited(body: Node2D) -> void:
 	left_area(body)
 func _on_right_body_exited(body: Node2D) -> void:
 	left_area(body)
-
-
+	
 func _on_box_beneath_area_entered(area: Area2D) -> void:
 	if area:
 		gravity_scale = 0
@@ -88,3 +91,12 @@ func _on_box_beneath_area_entered(area: Area2D) -> void:
 func _on_box_beneath_area_exited(area: Area2D) -> void:
 	gravity_scale = 1
 	boxBelow = null
+
+
+func _on_collision_check_timeout() -> void:
+	if !box_beneath.get_overlapping_areas():
+		print(self, "entered")
+		boxBelow = null
+		
+		gravity_scale = 1
+		 
