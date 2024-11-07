@@ -95,7 +95,6 @@ func _on_box_beneath_area_exited(area: Area2D) -> void:
 
 func _on_collision_check_timeout() -> void:
 	if !box_beneath.get_overlapping_areas():
-		print(self, "entered")
 		boxBelow = null
 		
 		gravity_scale = 1

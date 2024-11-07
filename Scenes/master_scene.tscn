@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4bw6tti0rojg"]
+[gd_scene load_steps=3 format=3 uid="uid://b4bw6tti0rojg"]
 
 [ext_resource type="Script" path="res://Scripts/master_scene.gd" id="1_n1vwq"]
+[ext_resource type="AudioStream" uid="uid://iaitbmp768xe" path="res://Assets/music/gamejam1.wav" id="2_gdw7g"]
 
 [node name="MasterScene" type="Control"]
 layout_mode = 3
@@ -40,6 +41,10 @@ text = "Load test.tscn"
 [node name="Main2D" type="Node2D" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_gdw7g")
+autoplay = true
+panning_strength = 0.0
+playback_type = 1
 
 [connection signal="pressed" from="Menu/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Menu/Button2" to="." method="_on_button_2_pressed"]

@@ -11,12 +11,10 @@ var pressed := false
 func _process(delta: float) -> void:
 	if door_sprite.animation == "open":
 		if door_sprite.frame >= 4 and door_sprite.frame < 8:
-			print("normal")
 			closed.set_deferred("disabled", true)
 			partially_closed.set_deferred("disabled", true)	
 		elif door_sprite.frame < 4 and door_sprite.frame > 0:
 			closed.set_deferred("disabled", true)
-			print("ye")
 			partially_closed.set_deferred("disabled", true)	
 	
 func open_door():
