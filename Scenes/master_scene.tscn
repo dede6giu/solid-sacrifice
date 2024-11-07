@@ -1,7 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4bw6tti0rojg"]
+[gd_scene load_steps=7 format=3 uid="uid://b4bw6tti0rojg"]
 
 [ext_resource type="Script" path="res://Scripts/master_scene.gd" id="1_n1vwq"]
-[ext_resource type="AudioStream" uid="uid://iaitbmp768xe" path="res://Assets/music/gamejam1.wav" id="2_gdw7g"]
+[ext_resource type="AudioStream" uid="uid://c1p3e3x5u8i1o" path="res://Assets/music/gamejam1.ogg" id="2_eoinr"]
+[ext_resource type="Script" path="res://Scripts/music_handler.gd" id="3_tlbtu"]
+
+[sub_resource type="Animation" id="Animation_cd03r"]
+resource_name = "Volume Fade In"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_n3vap"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1x7vf"]
+_data = {
+"RESET": SubResource("Animation_n3vap"),
+"Volume Fade In": SubResource("Animation_cd03r")
+}
 
 [node name="MasterScene" type="Control"]
 layout_mode = 3
@@ -41,10 +79,17 @@ text = "Load test.tscn"
 [node name="Main2D" type="Node2D" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_gdw7g")
+stream = ExtResource("2_eoinr")
 autoplay = true
 panning_strength = 0.0
 playback_type = 1
+script = ExtResource("3_tlbtu")
+
+[node name="Effects Handler" type="AnimationPlayer" parent="AudioStreamPlayer2D"]
+libraries = {
+"": SubResource("AnimationLibrary_1x7vf")
+}
+autoplay = "Volume Fade In"
 
 [connection signal="pressed" from="Menu/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Menu/Button2" to="." method="_on_button_2_pressed"]
