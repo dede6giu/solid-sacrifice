@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://mfcgv2lxhelj" path="res://Scenes/player.tscn" id="1_lnxay"]
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_oo4se"]
-[ext_resource type="TileSet" uid="uid://btj3oh8wvdc2m" path="res://Assets/sprites/tileset.tres" id="3_6cl6v"]
-[ext_resource type="PackedScene" uid="uid://bysksk2821t4j" path="res://Scenes/Button - Door.tscn" id="3_7fm6l"]
+[ext_resource type="TileSet" path="res://Assets/sprites/tileset.tres" id="3_6cl6v"]
+[ext_resource type="PackedScene" path="res://Scenes/Button - Door.tscn" id="3_7fm6l"]
 [ext_resource type="PackedScene" uid="uid://c6yt25k2xkwt5" path="res://Scenes/key-door.tscn" id="4_fnhwh"]
 [ext_resource type="PackedScene" uid="uid://bos6uwg4woc4q" path="res://Scenes/spikes.tscn" id="5_trpfg"]
 [ext_resource type="Shader" path="res://Shaders/button.gdshader" id="6_ta2sk"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://bvghquv5raodw"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_twpvb"]
-[ext_resource type="TileSet" uid="uid://btj3oh8wvdc2m" path="res://Assets/sprites/tileset.tres" id="2_jwwc8"]
+[ext_resource type="TileSet" path="res://Assets/sprites/tileset.tres" id="2_jwwc8"]
 [ext_resource type="PackedScene" uid="uid://c6yt25k2xkwt5" path="res://Scenes/key-door.tscn" id="3_rduu1"]
 [ext_resource type="PackedScene" uid="uid://mfcgv2lxhelj" path="res://Scenes/player.tscn" id="4_afuay"]
 [ext_resource type="PackedScene" uid="uid://dxpd61cq541o3" path="res://Scenes/platform.tscn" id="6_6ba26"]
