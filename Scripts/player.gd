@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED := 100.0
 const BOXHOLDSPEED := SPEED / 2
 const JUMP_VELOCITY := -150.0
+const jumpSFX := preload("res://Scenes/sfx/jump_sfx.tscn")
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var isJump := false
 var isFreeFall := false
@@ -12,6 +13,7 @@ var isNearBox := false
 var heldBoxID = null
 var isDead := false
 @onready var free_fall_timer: Timer = $FreeFallTimer
+
 
 var is_position_restored := false  
 
@@ -56,6 +58,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		animated_sprite_2d.play("Jump")
 		isJump = true
+		add_child(jumpSFX.instantiate())
+		
 
 	var direction := Input.get_axis("move_left", "move_right")
 	if !isHoldingBox:

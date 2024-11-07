@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dns7f7jlatr2j"]
+
+[ext_resource type="AudioStream" uid="uid://dqdmj1epgjkrl" path="res://Assets/music/jump.ogg" id="1_m6vqn"]
+[ext_resource type="Script" path="res://Scripts/jump_sfx.gd" id="2_80ddl"]
+
+[node name="JumpSFX" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_m6vqn")
+volume_db = 3.714
+bus = &"Pitch Shift"
+script = ExtResource("2_80ddl")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
