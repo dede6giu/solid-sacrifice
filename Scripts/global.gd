@@ -27,8 +27,7 @@ func Reset(id: int, path: String) -> void:
 	var nextMap = ResourceLoader.load(path).instantiate()
 	instance_from_id(id).get_parent().add_child(nextMap)
 	instance_from_id(id).queue_free()
-	chaves.clear()
-	box_queue.clear()
+	VariableReset()
 
 static func queue_management(id: int) -> void:
 	box_queue.push_back(id)

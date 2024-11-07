@@ -66,14 +66,6 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_n1vwq")
 
-[node name="Transitions" type="Node2D" parent="."]
-
-[node name="Transition" parent="Transitions" instance=ExtResource("5_hc2df")]
-position = Vector2(-136, 8)
-monitoring = false
-monitorable = false
-path = "res://Scenes/level0.tscn"
-
 [node name="Menu" type="Control" parent="."]
 anchors_preset = 0
 
@@ -81,25 +73,17 @@ anchors_preset = 0
 layout_mode = 0
 offset_left = 512.0
 offset_top = 272.0
-offset_right = 642.0
+offset_right = 640.0
 offset_bottom = 303.0
-text = "Load game.tscn"
+text = "Play Game"
 
 [node name="Button2" type="Button" parent="Menu"]
 layout_mode = 0
-offset_left = 528.0
-offset_top = 400.0
-offset_right = 620.0
-offset_bottom = 431.0
-text = "Quit Game"
-
-[node name="Button3" type="Button" parent="Menu"]
-layout_mode = 0
-offset_left = 520.0
+offset_left = 512.0
 offset_top = 336.0
-offset_right = 637.0
+offset_right = 640.0
 offset_bottom = 367.0
-text = "Load test.tscn"
+text = "Quit Game"
 
 [node name="Main2D" type="Node2D" parent="."]
 
@@ -119,9 +103,9 @@ autoplay = "Volume Fade In"
 
 [node name="To Menu" type="Button" parent="HUD"]
 z_index = -1
-offset_left = 1056.0
+offset_left = 32.0
 offset_top = 32.0
-offset_right = 1120.0
+offset_right = 96.0
 offset_bottom = 96.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ht5pv")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_r1jmm")
@@ -139,7 +123,13 @@ script = ExtResource("4_7upvv")
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(-432, 216)
 
+[node name="Transitions" type="Node2D" parent="."]
+
+[node name="Transition" parent="Transitions" instance=ExtResource("5_hc2df")]
+monitoring = false
+monitorable = false
+path = "res://Scenes/levels/level0.tscn"
+
 [connection signal="pressed" from="Menu/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Menu/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Menu/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="HUD/To Menu" to="." method="_on_to_menu_pressed"]

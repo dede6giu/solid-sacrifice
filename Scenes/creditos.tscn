@@ -50,7 +50,7 @@ limit_bottom = 0
 [node name="Boxes" type="Node2D" parent="."]
 
 [node name="Box" parent="Boxes" instance=ExtResource("5_w8exi")]
-position = Vector2(208, -24)
+position = Vector2(192, -24)
 
 [node name="Spikes" type="Node2D" parent="."]
 
@@ -68,20 +68,22 @@ offset_bottom = -128.0
 
 [node name="MainTitle" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = -104.0
+offset_left = -136.0
 offset_top = -32.0
-offset_right = -9.0
+offset_right = 27.0
 offset_bottom = -6.0
-text = "CRÉDITOS"
+text = "SOLID SACRIFICE"
 label_settings = SubResource("LabelSettings_6lacm")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Prog" type="Label" parent="Control/MainTitle"]
 layout_mode = 0
-offset_left = -112.0
-offset_top = 32.0
-offset_right = -20.0
-offset_bottom = 55.0
-text = "PROGRAMAÇÃO"
+offset_left = -88.0
+offset_top = 48.0
+offset_right = 4.0
+offset_bottom = 71.0
+text = "PROGRAMMING"
 label_settings = SubResource("LabelSettings_an54u")
 horizontal_alignment = 1
 
@@ -99,32 +101,35 @@ label_settings = SubResource("LabelSettings_d13mp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Music" type="Label" parent="Control/MainTitle"]
+[node name="Audio" type="Label" parent="Control/MainTitle"]
 layout_mode = 0
-offset_top = 32.0
-offset_right = 92.0
-offset_bottom = 55.0
-text = "MÚSICA"
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 124.0
+offset_bottom = 63.0
+text = "AUDIO"
 label_settings = SubResource("LabelSettings_an54u")
 horizontal_alignment = 1
 
-[node name="Names" type="Label" parent="Control/MainTitle/Music"]
+[node name="Names" type="Label" parent="Control/MainTitle/Audio"]
 layout_mode = 0
 offset_left = -8.0
-offset_top = 16.0
+offset_top = 24.0
 offset_right = 100.0
-offset_bottom = 40.0
-text = "José Antônio"
+offset_bottom = 54.0
+text = "José Antônio
+LUCA HERINGER"
 label_settings = SubResource("LabelSettings_d13mp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Arte" type="Label" parent="Control/MainTitle"]
 layout_mode = 0
-offset_top = 80.0
-offset_right = 92.0
-offset_bottom = 103.0
-text = "ARTE"
+offset_left = 32.0
+offset_top = 112.0
+offset_right = 124.0
+offset_bottom = 135.0
+text = "ART"
 label_settings = SubResource("LabelSettings_an54u")
 horizontal_alignment = 1
 
@@ -142,22 +147,24 @@ vertical_alignment = 1
 
 [node name="Special" type="Label" parent="Control/MainTitle"]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 32.0
-offset_right = 204.0
-offset_bottom = 55.0
-text = "Especial"
+offset_left = 152.0
+offset_top = 48.0
+offset_right = 244.0
+offset_bottom = 71.0
+text = "THANKS TO"
 label_settings = SubResource("LabelSettings_an54u")
 horizontal_alignment = 1
 
 [node name="Names" type="Label" parent="Control/MainTitle/Special"]
 layout_mode = 0
 offset_left = -8.0
-offset_top = 16.0
+offset_top = 24.0
 offset_right = 100.0
-offset_bottom = 56.0
-text = "Organizadores da GJ
-variáveis globais
+offset_bottom = 71.0
+text = "GJ ORGANIZERS
+GLOBAL VARIABLES
+brackeys (yt)
+YOU
 "
 label_settings = SubResource("LabelSettings_d13mp")
 horizontal_alignment = 1

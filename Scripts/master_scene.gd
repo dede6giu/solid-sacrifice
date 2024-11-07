@@ -19,7 +19,7 @@ func unload_level() -> void:
 
 func load_level(level_name: String) -> void:
 	unload_level()
-	var level_path : String = "res://Scenes/%s.tscn" % level_name
+	var level_path : String = "res://Scenes/levels/%s.tscn" % level_name
 	var level_resource : PackedScene = load(level_path)
 	if level_resource:
 		level_instance = level_resource.instantiate()

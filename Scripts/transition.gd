@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var path = "res://Scenes/master_scene.tscn"  
+@onready var transition: Area2D = $"."
 
 var player = null  
 
@@ -32,13 +33,17 @@ func handling():
 	
 	if Global.comingFromMenu:
 		Global.comingFromMenu = false
-		var next_level = ResourceLoader.load("res://Scenes/levels/level-1.tscn").instantiate()
+		var next_level = ResourceLoader.load("res://Scenes/levels/level6.tscn").instantiate()
 		var pos = next_level.get_node("SpawnPoint").position
 		get_tree().get_root().get_node("MasterScene").get_node("Main2D").add_child(next_level)
 		TransitionAnimation.changeScene("OpenToLeft")
 		return
 	
-	var current_level = get_parent().get_parent()   
+	var current_level = get_parent().get_parent()
+	print(current_level)
+	print(path)
+	print(ResourceLoader.load(path))
+	print(get_tree().get_root().get_node("MasterScene").get_node("Main2D").get_children())
 	var next_level = ResourceLoader.load(path).instantiate()
 	var pos = next_level.get_node("SpawnPoint").position
 
