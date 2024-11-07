@@ -1,25 +1,72 @@
-[gd_scene load_steps=4 format=3 uid="uid://bos6uwg4woc4q"]
+[gd_scene load_steps=10 format=3 uid="uid://bos6uwg4woc4q"]
 
 [ext_resource type="Texture2D" uid="uid://db4qp5snnhia4" path="res://Assets/sprites/Spikes_yikes.png" id="1_7ph2d"]
 [ext_resource type="PackedScene" uid="uid://dsd0k7wxdnso3" path="res://Scenes/killzone.tscn" id="2_a12f0"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_52dyr"]
+atlas = ExtResource("1_7ph2d")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2weyy"]
+atlas = ExtResource("1_7ph2d")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bnap8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52dyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2weyy")
+}],
+"loop": true,
+"name": &"Dance",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwges"]
+atlas = ExtResource("1_7ph2d")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al00j"]
+atlas = ExtResource("1_7ph2d")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6s2fu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwges")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_al00j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1i0l7"]
-size = Vector2(32, 11)
+size = Vector2(32, 8)
 
 [node name="Spikes" type="StaticBody2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 0.5)
-scale = Vector2(1, 0.9375)
-texture = ExtResource("1_7ph2d")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8, -8.9407e-07)
+sprite_frames = SubResource("SpriteFrames_bnap8")
+animation = &"Dance"
+autoplay = "Dance"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 0)
+sprite_frames = SubResource("SpriteFrames_6s2fu")
+autoplay = "default"
 
 [node name="Killzone" parent="." instance=ExtResource("2_a12f0")]
 
-[node name="CollisionShape2D" parent="Killzone" index="0"]
-position = Vector2(0, 0.5)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2.5)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_1i0l7")
 
 [editable path="Killzone"]

@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=4 uid="uid://bvghquv5raodw"]
+
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_twpvb"]
+[ext_resource type="TileSet" uid="uid://btj3oh8wvdc2m" path="res://Assets/sprites/tileset.tres" id="2_jwwc8"]
+[ext_resource type="PackedScene" uid="uid://c6yt25k2xkwt5" path="res://Scenes/key-door.tscn" id="3_rduu1"]
+[ext_resource type="PackedScene" uid="uid://mfcgv2lxhelj" path="res://Scenes/player.tscn" id="4_afuay"]
+[ext_resource type="PackedScene" uid="uid://dxpd61cq541o3" path="res://Scenes/platform.tscn" id="6_6ba26"]
+[ext_resource type="PackedScene" uid="uid://bos6uwg4woc4q" path="res://Scenes/spikes.tscn" id="6_gp678"]
+
+[sub_resource type="Animation" id="Animation_ishhv"]
+resource_name = "move"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(216, -160), Vector2(216, -160), Vector2(216, -24), Vector2(216, -24)]
+}
+
+[sub_resource type="Animation" id="Animation_1aict"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(216, -160)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y4vd5"]
+_data = {
+"RESET": SubResource("Animation_1aict"),
+"move": SubResource("Animation_ishhv")
+}
+
+[node name="Puzzle3" type="Node2D"]
+script = ExtResource("1_twpvb")
+levelPath = "res://Scenes/levels/puzzle3.tscn"
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(32, -32)
+
+[node name="Tileset" type="Node2D" parent="."]
+
+[node name="ground" type="TileMapLayer" parent="Tileset"]
+tile_map_data = PackedByteArray("AAABAP//AAAHAAQAAAACAP//AAAHAAQAAAADAP//AAAHAAQAAAAEAP//AAAHAAQAAAAFAP//AAAHAAQAAAAGAP//AAAHAAQAAAAHAP//AAAHAAQAAAAIAP//AAAHAAUAAAAJAP//AAAHAAUAAAAKAP//AAAHAAUAAAAAAP7/AAAIAAUAAAAAAP3/AAAIAAUAAAAAAPz/AAAIAAUAAAAAAPv/AAAIAAUAAAAAAPr/AAAIAAUAAAAAAPn/AAAIAAUAAAAAAPj/AAAIAAUAAAAAAPf/AAAIAAUAAAAAAPb/AAAIAAUAAAAAAPX/AAAIAAUAAAAAAPT/AAAIAAUAAAAAAPP/AAAIAAUAAAABAPL/AAAHAAYAAAACAPL/AAAHAAYAAAADAPL/AAAHAAYAAAAEAPL/AAAHAAYAAAAFAPL/AAAHAAYAAAAGAPL/AAAHAAYAAAAHAPL/AAAHAAYAAAAIAPL/AAAHAAYAAAAJAPL/AAAHAAYAAAAKAPL/AAAHAAYAAAALAPL/AAAHAAYAAAAMAPL/AAAHAAYAAAANAPL/AAAHAAYAAAAOAPL/AAAHAAYAAAAPAPL/AAAHAAYAAAAQAPL/AAAHAAYAAAARAPL/AAAHAAYAAAASAPL/AAAHAAYAAAATAPL/AAAHAAYAAAAXAPz/AAAGAAUAAAAXAP3/AAAGAAUAAAAXAPj/AAAHAAUAAAAXAPn/AAAHAAUAAAAXAPr/AAAHAAUAAAAXAPv/AAAHAAUAAAAXAPf/AAAHAAUAAAAXAPX/AAAHAAUAAAAXAPb/AAAHAAUAAAAVAPL/AAAHAAUAAAAWAPL/AAAHAAUAAAAXAPL/AAAHAAUAAAAXAPP/AAAHAAUAAAAXAPT/AAAHAAUAAAAUAPL/AAAHAAUAAAALAP//AAAHAAUAAAALAAAAAAAHAAUAAAAMAP//AAAHAAUAAAAMAAAAAAAHAAUAAAANAP//AAAHAAUAAAANAAAAAAAHAAUAAAAOAP//AAAHAAUAAAAOAAAAAAAHAAUAAAAPAP//AAAHAAUAAAAPAAAAAAAHAAUAAAAQAP//AAAHAAUAAAAQAAAAAAAHAAUAAAARAP//AAAHAAUAAAARAAAAAAAHAAUAAAASAP//AAAHAAUAAAASAAAAAAAHAAUAAAATAP//AAAHAAUAAAATAAAAAAAHAAUAAAAUAP//AAAHAAUAAAAUAAAAAAAHAAUAAAAVAP//AAAHAAUAAAAVAAAAAAAHAAUAAAAWAP//AAAHAAUAAAAWAAAAAAAHAAUAAAAXAP//AAAHAAUAAAAXAAAAAAAHAAUAAAAXAP7/AAAHAAUAAAAAAP//AAAHAAUAAAAAAAAAAAAHAAUAAAABAAAAAAAHAAUAAAACAAAAAAAHAAUAAAADAAAAAAAHAAUAAAAEAAAAAAAHAAUAAAAFAAAAAAAHAAUAAAAGAAAAAAAHAAUAAAAHAAAAAAAHAAUAAAAIAAAAAAAHAAUAAAAJAAAAAAAHAAUAAAAKAAAAAAAHAAUAAAD///L/AAAHAAUAAAD///P/AAAHAAUAAAD///T/AAAHAAUAAAD///X/AAAHAAUAAAD///b/AAAHAAUAAAD///f/AAAHAAUAAAD///j/AAAHAAUAAAD///n/AAAHAAUAAAD///r/AAAHAAUAAAD///v/AAAHAAUAAAD///z/AAAHAAUAAAD///3/AAAHAAUAAAD///7/AAAHAAUAAAD/////AAAHAAUAAAD//wAAAAAHAAUAAAAAAPL/AAAHAAUAAAAWAPb/AAAHAAQAAAAVAPb/AAAHAAQAAAAUAPb/AAAHAAQAAAATAPb/AAAHAAQAAAASAPb/AAAHAAQAAAARAPb/AAAHAAQAAAAQAPb/AAAHAAQAAAA=")
+tile_set = ExtResource("2_jwwc8")
+
+[node name="keydoors" type="Node2D" parent="."]
+
+[node name="Key-Door" parent="keydoors" instance=ExtResource("3_rduu1")]
+
+[node name="Key" parent="keydoors/Key-Door" index="0"]
+position = Vector2(344, -64)
+
+[node name="Door" parent="keydoors/Key-Door" index="1"]
+position = Vector2(360, -176)
+
+[node name="Player" parent="." instance=ExtResource("4_afuay")]
+position = Vector2(32, -32)
+
+[node name="Camera2D" parent="Player" index="3"]
+limit_left = 0
+limit_right = 384
+limit_bottom = 0
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Spikes" parent="Spikes" instance=ExtResource("6_gp678")]
+position = Vector2(304, -200)
+rotation = -3.14159
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Platform" parent="Platforms" instance=ExtResource("6_6ba26")]
+position = Vector2(216, -160)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform"]
+libraries = {
+"": SubResource("AnimationLibrary_y4vd5")
+}
+autoplay = "move"
+
+[editable path="keydoors/Key-Door"]
+[editable path="Player"]

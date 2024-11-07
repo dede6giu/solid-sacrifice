@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dr3n25lp8t06p" path="res://Scenes/box.tscn" id="4_xkxul"]
 [ext_resource type="PackedScene" uid="uid://c6yt25k2xkwt5" path="res://Scenes/key-door.tscn" id="5_ggrih"]
 [ext_resource type="PackedScene" uid="uid://bos6uwg4woc4q" path="res://Scenes/spikes.tscn" id="6_bll07"]
-[ext_resource type="PackedScene" path="res://Scenes/Button - Door.tscn" id="8_6httl"]
+[ext_resource type="PackedScene" uid="uid://bysksk2821t4j" path="res://Scenes/Button - Door.tscn" id="8_6httl"]
 [ext_resource type="PackedScene" uid="uid://bpm2umr3xk6as" path="res://Scenes/transition.tscn" id="9_uls6g"]
 [ext_resource type="Script" path="res://Scripts/tilemapcollisionbaker.gd" id="10_ew11d"]
 

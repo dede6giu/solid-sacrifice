@@ -9,9 +9,9 @@ func create_statue(character_position: Vector2):
 	Global.queue_management(newStatue.get_instance_id())
 	if character_position.y >= get_parent().position.y:
 		newStatue.position = - character_position + get_parent().position
-		newStatue.rotation_degrees = -180
 	else:
 		newStatue.position = character_position - get_parent().position
+	newStatue.rotation_degrees = -get_parent().rotation_degrees
 	newStatue.get_node("Box").get_node("AnimatedSprite2D").flip_h = player.get_node("AnimatedSprite2D").flip_h
 	newStatue.get_node("Box").get_node("AnimatedSprite2D").animation_finished.connect(_on_death_finish)
 	add_child(newStatue)

@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=4 uid="uid://63n06bchigt7"]
+[gd_scene load_steps=7 format=4 uid="uid://63n06bchigt7"]
 
-[ext_resource type="Script" path="res://Scripts/game.gd" id="1_ndj4a"]
-[ext_resource type="TileSet" uid="uid://btj3oh8wvdc2m" path="res://Assets/sprites/tileset.tres" id="1_w0ob7"]
-[ext_resource type="PackedScene" uid="uid://mfcgv2lxhelj" path="res://Scenes/player.tscn" id="2_rk70f"]
-[ext_resource type="PackedScene" uid="uid://dr3n25lp8t06p" path="res://Scenes/box.tscn" id="3_d06cu"]
-[ext_resource type="PackedScene" uid="uid://bos6uwg4woc4q" path="res://Scenes/spikes.tscn" id="4_urwgb"]
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_ir4tp"]
+[ext_resource type="TileSet" uid="uid://btj3oh8wvdc2m" path="res://Assets/sprites/tileset.tres" id="2_xf3m7"]
+[ext_resource type="PackedScene" uid="uid://c6yt25k2xkwt5" path="res://Scenes/key-door.tscn" id="3_1g1dc"]
+[ext_resource type="PackedScene" uid="uid://mfcgv2lxhelj" path="res://Scenes/player.tscn" id="4_clfeb"]
+[ext_resource type="PackedScene" uid="uid://dr3n25lp8t06p" path="res://Scenes/box.tscn" id="5_r1hch"]
+[ext_resource type="PackedScene" uid="uid://bos6uwg4woc4q" path="res://Scenes/spikes.tscn" id="6_tsghx"]
 
-[node name="Teste" type="Node2D"]
-script = ExtResource("1_ndj4a")
-levelPath = "res://Scenes/teste.tscn"
+[node name="Puzzle1" type="Node2D"]
+script = ExtResource("1_ir4tp")
+levelPath = "res://Scenes/level/puzzle1.tscn"
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(32, -32)
@@ -17,10 +18,20 @@ position = Vector2(32, -32)
 
 [node name="ground" type="TileMapLayer" parent="Tileset"]
 tile_map_data = PackedByteArray("AAABAP//AAAHAAQAAAACAP//AAAHAAQAAAADAP//AAAHAAQAAAAEAP//AAAHAAQAAAAFAP//AAAHAAQAAAAGAP//AAAHAAQAAAAHAP//AAAHAAQAAAAIAP//AAAHAAQAAAAJAP//AAAHAAQAAAAKAP//AAAHAAQAAAALAP7/AAAGAAQAAAAMAP7/AAAHAAQAAAANAP7/AAAHAAQAAAAOAP7/AAAHAAQAAAAPAP7/AAAHAAQAAAAQAP7/AAAHAAQAAAARAP7/AAAHAAQAAAASAP7/AAAHAAQAAAATAP7/AAAHAAQAAAAUAP7/AAAHAAQAAAAAAP7/AAAIAAUAAAAAAP3/AAAIAAUAAAAAAPz/AAAIAAUAAAAAAPv/AAAIAAUAAAAAAPr/AAAIAAUAAAAAAPn/AAAIAAUAAAAAAPj/AAAIAAUAAAAAAPf/AAAIAAUAAAAAAPb/AAAIAAUAAAAAAPX/AAAIAAUAAAAAAPT/AAAIAAUAAAAAAPP/AAAIAAUAAAABAPL/AAAHAAYAAAACAPL/AAAHAAYAAAADAPL/AAAHAAYAAAAEAPL/AAAHAAYAAAAFAPL/AAAHAAYAAAAGAPL/AAAHAAYAAAAHAPL/AAAHAAYAAAAIAPL/AAAHAAYAAAAJAPL/AAAHAAYAAAAKAPL/AAAHAAYAAAALAPL/AAAHAAYAAAAMAPL/AAAHAAYAAAANAPL/AAAHAAYAAAAOAPL/AAAHAAYAAAAPAPL/AAAHAAYAAAAQAPL/AAAHAAYAAAARAPL/AAAHAAYAAAASAPL/AAAHAAYAAAATAPL/AAAHAAYAAAAXAPz/AAAGAAUAAAAXAP3/AAAGAAUAAAAVAP7/AAAHAAQAAAAWAP7/AAAHAAQAAAAWAPv/AAAHAAYAAAAVAPv/AAAHAAYAAAAUAPv/AAAHAAYAAAATAPv/AAAHAAYAAAASAPv/AAAHAAYAAAARAPv/AAAGAAYAAAARAPf/AAAGAAQAAAATAPX/AAAGAAQAAAAUAPP/AAAGAAUAAAAUAPT/AAAGAAUAAAARAPj/AAAGAAUAAAARAPn/AAAGAAUAAAARAPr/AAAGAAUAAAATAPb/AAAGAAUAAAASAPf/AAAHAAQAAAASAPj/AAAHAAUAAAASAPn/AAAHAAUAAAASAPr/AAAHAAUAAAATAPj/AAAHAAUAAAATAPn/AAAHAAUAAAATAPr/AAAHAAUAAAAUAPj/AAAHAAUAAAAUAPn/AAAHAAUAAAAUAPr/AAAHAAUAAAAVAPj/AAAHAAUAAAAVAPn/AAAHAAUAAAAVAPr/AAAHAAUAAAAWAPj/AAAHAAUAAAAWAPn/AAAHAAUAAAAWAPr/AAAHAAUAAAAXAPj/AAAHAAUAAAAXAPn/AAAHAAUAAAAXAPr/AAAHAAUAAAAXAPv/AAAHAAUAAAATAPf/AAAHAAUAAAAUAPf/AAAHAAUAAAAVAPf/AAAHAAUAAAAWAPf/AAAHAAUAAAAXAPf/AAAHAAUAAAAUAPX/AAAHAAUAAAAUAPb/AAAHAAUAAAAVAPX/AAAHAAUAAAAVAPb/AAAHAAUAAAAWAPX/AAAHAAUAAAAWAPb/AAAHAAUAAAAXAPX/AAAHAAUAAAAXAPb/AAAHAAUAAAAVAPL/AAAHAAUAAAAVAPP/AAAHAAUAAAAVAPT/AAAHAAUAAAAWAPL/AAAHAAUAAAAWAPP/AAAHAAUAAAAWAPT/AAAHAAUAAAAXAPL/AAAHAAUAAAAXAPP/AAAHAAUAAAAXAPT/AAAHAAUAAAAUAPL/AAAHAAUAAAALAP//AAAHAAUAAAALAAAAAAAHAAUAAAAMAP//AAAHAAUAAAAMAAAAAAAHAAUAAAANAP//AAAHAAUAAAANAAAAAAAHAAUAAAAOAP//AAAHAAUAAAAOAAAAAAAHAAUAAAAPAP//AAAHAAUAAAAPAAAAAAAHAAUAAAAQAP//AAAHAAUAAAAQAAAAAAAHAAUAAAARAP//AAAHAAUAAAARAAAAAAAHAAUAAAASAP//AAAHAAUAAAASAAAAAAAHAAUAAAATAP//AAAHAAUAAAATAAAAAAAHAAUAAAAUAP//AAAHAAUAAAAUAAAAAAAHAAUAAAAVAP//AAAHAAUAAAAVAAAAAAAHAAUAAAAWAP//AAAHAAUAAAAWAAAAAAAHAAUAAAAXAP//AAAHAAUAAAAXAAAAAAAHAAUAAAAXAP7/AAAHAAUAAAAAAP//AAAHAAUAAAAAAAAAAAAHAAUAAAABAAAAAAAHAAUAAAACAAAAAAAHAAUAAAADAAAAAAAHAAUAAAAEAAAAAAAHAAUAAAAFAAAAAAAHAAUAAAAGAAAAAAAHAAUAAAAHAAAAAAAHAAUAAAAIAAAAAAAHAAUAAAAJAAAAAAAHAAUAAAAKAAAAAAAHAAUAAAD///L/AAAHAAUAAAD///P/AAAHAAUAAAD///T/AAAHAAUAAAD///X/AAAHAAUAAAD///b/AAAHAAUAAAD///f/AAAHAAUAAAD///j/AAAHAAUAAAD///n/AAAHAAUAAAD///r/AAAHAAUAAAD///v/AAAHAAUAAAD///z/AAAHAAUAAAD///3/AAAHAAUAAAD///7/AAAHAAUAAAD/////AAAHAAUAAAD//wAAAAAHAAUAAAAAAPL/AAAHAAUAAAA=")
-tile_set = ExtResource("1_w0ob7")
+tile_set = ExtResource("2_xf3m7")
 
-[node name="Player" parent="." instance=ExtResource("2_rk70f")]
-position = Vector2(192, -104)
+[node name="keydoors" type="Node2D" parent="."]
+
+[node name="Key-Door" parent="keydoors" instance=ExtResource("3_1g1dc")]
+
+[node name="Key" parent="keydoors/Key-Door" index="0"]
+position = Vector2(216, -96)
+
+[node name="Door" parent="keydoors/Key-Door" index="1"]
+position = Vector2(280, -48)
+
+[node name="Player" parent="." instance=ExtResource("4_clfeb")]
+position = Vector2(32, -32)
 
 [node name="Camera2D" parent="Player" index="3"]
 limit_left = 0
@@ -29,13 +40,14 @@ limit_bottom = 0
 
 [node name="Boxes" type="Node2D" parent="."]
 
-[node name="Box" parent="Boxes" instance=ExtResource("3_d06cu")]
+[node name="Box" parent="Boxes" instance=ExtResource("5_r1hch")]
 position = Vector2(216, -40)
 
 [node name="Spikes" type="Node2D" parent="."]
 
-[node name="Spikes" parent="Spikes" instance=ExtResource("4_urwgb")]
+[node name="Spikes" parent="Spikes" instance=ExtResource("6_tsghx")]
 position = Vector2(72, -72)
 rotation = 3.14159
 
+[editable path="keydoors/Key-Door"]
 [editable path="Player"]
