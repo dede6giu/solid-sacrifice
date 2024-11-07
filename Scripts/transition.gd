@@ -32,7 +32,7 @@ func handling():
 	
 	if Global.comingFromMenu:
 		Global.comingFromMenu = false
-		var next_level = ResourceLoader.load("res://Scenes/levels/level0.tscn").instantiate()
+		var next_level = ResourceLoader.load("res://Scenes/levels/level-1.tscn").instantiate()
 		var pos = next_level.get_node("SpawnPoint").position
 		get_tree().get_root().get_node("MasterScene").get_node("Main2D").add_child(next_level)
 		TransitionAnimation.changeScene("OpenToLeft")

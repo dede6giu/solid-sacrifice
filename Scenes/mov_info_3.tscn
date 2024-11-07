@@ -60,7 +60,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_afbjx")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_6fwaa")
 }, {
 "duration": 1.0,
@@ -77,11 +77,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 12.0
+"speed": 10.0
 }]
 
 [node name="MovInfo3" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_xg5d8")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.225386
+frame_progress = 0.731044
