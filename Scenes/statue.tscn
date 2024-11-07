@@ -115,7 +115,7 @@ visible = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Box"]
 sprite_frames = SubResource("SpriteFrames_whwrt")
-animation = &"Crack"
+animation = &"Stone"
 autoplay = "Stone"
 
 [editable path="Box"]

@@ -10,6 +10,7 @@ var isFreeFall := false
 var isHoldingBox := false
 var isNearBox := false
 var heldBoxID = null
+var isDead := false
 @onready var free_fall_timer: Timer = $FreeFallTimer
 
 var is_position_restored := false  
@@ -34,6 +35,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if isDead:
+		return
 	if Input.is_action_just_pressed("Reset"):
 		Global.Reset(get_parent().get_instance_id(), get_parent().levelPath)
 		return

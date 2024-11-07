@@ -6,6 +6,9 @@ static var statue_limit = 2;
 static var box_queue = []
 static var statueBreak = null
 
+static var statueBreaking = false
+static var statueCracking = false
+
 static var chaves = []
 
 func Reset(id: int, path: String) -> void:
@@ -19,18 +22,21 @@ func Reset(id: int, path: String) -> void:
 static func queue_management(id: int) -> void:
 	box_queue.push_back(id)
 	if box_queue.size() > statue_limit:
+		statueBreaking = true
 		# break first
 		statueBreak = instance_from_id(box_queue.pop_front())
 		statueBreak.get_node("Box").get_node("AnimatedSprite2D").animation_finished.connect(_on_box_death)
 		statueBreak.get_node("Box").get_node("AnimatedSprite2D").play("Break")
 	if box_queue.size() == statue_limit:
+		statueCracking = true
 		# crack first
-		var crackS = box_queue.front()
-		instance_from_id(crackS).get_node("Box").get_node("AnimatedSprite2D").play("Crack")
+		var crackS = instance_from_id(box_queue.front())
+		crackS.get_node("Box").get_node("AnimatedSprite2D").play("Crack")
 	
 static func _on_box_death():
-	statueBreak.queue_free()
-	statueBreak = null
+	if statueBreak:
+		statueBreak.queue_free()
+		statueBreak = null
 	
 static func save_position_for_scene(scene_name: String, position: Vector2) -> void:
 	saved_positions[scene_name.to_lower()] = position

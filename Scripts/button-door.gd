@@ -9,6 +9,8 @@ var pressed := false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if pressed and !plate.get_overlapping_areas():
+		_on_plate_area_exited(null)
 	if door_sprite.animation == "open":
 		if door_sprite.frame >= 4 and door_sprite.frame < 8:
 			closed.set_deferred("disabled", true)
@@ -39,13 +41,15 @@ func _on_door_close_finish():
 	closed.set_deferred("disabled", false)
 	partially_closed.set_deferred("disabled", false)
 	
-func _on_plate_body_entered(body: Node2D) -> void:
+
+
+func _on_plate_area_entered(area: Area2D) -> void:
 	if !pressed:
 		plate_sprite.play("press")
 		pressed = true
 		open_door()
 
-func _on_plate_body_exited(body: Node2D) -> void:
+func _on_plate_area_exited(area: Area2D) -> void:
 	if !plate.get_overlapping_areas():
 		plate_sprite.animation_finished.connect(_on_exit_plate_finish)
 		plate_sprite.play_backwards("press")

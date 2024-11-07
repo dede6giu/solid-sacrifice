@@ -19,13 +19,21 @@ func create_statue(character_position: Vector2):
 func _on_body_entered(body: Node2D) -> void:
 	inicial_player_pos = spawn.global_position
 	player = body
+	if player.isDead:
+		return
+	player.isDead = true
 	player.hide()
 	#body.get().animated_sprite_2d.play("Death")
 	create_statue(player.global_position)
 	
 func _on_death_finish() -> void:
-	if player:
-		player.position = inicial_player_pos
-		player.show()
-		player = null
- 
+	if Global.statueBreaking:
+		Global.statueBreaking = false
+	elif Global.statueCracking:
+		Global.statueCracking = false
+	elif !Global.statueBreaking and !Global.statueCracking: 
+		if player:
+			player.position = inicial_player_pos
+			player.show()
+			player.isDead = false
+			player = null

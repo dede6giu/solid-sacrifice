@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bn2a6qrtxx6rk"]
+[gd_scene load_steps=19 format=4 uid="uid://bn2a6qrtxx6rk"]
 
 [ext_resource type="PackedScene" uid="uid://mfcgv2lxhelj" path="res://Scenes/player.tscn" id="1_d3xyg"]
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_nlnyc"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c6yt25k2xkwt5" path="res://Scenes/key-door.tscn" id="5_ggrih"]
 [ext_resource type="PackedScene" uid="uid://bos6uwg4woc4q" path="res://Scenes/spikes.tscn" id="6_bll07"]
 [ext_resource type="PackedScene" uid="uid://bysksk2821t4j" path="res://Scenes/Button - Door.tscn" id="8_6httl"]
+[ext_resource type="Shader" path="res://Shaders/button.gdshader" id="9_4a5nj"]
 [ext_resource type="PackedScene" uid="uid://bpm2umr3xk6as" path="res://Scenes/transition.tscn" id="9_uls6g"]
 [ext_resource type="Script" path="res://Scripts/tilemapcollisionbaker.gd" id="10_ew11d"]
 
@@ -350,6 +351,24 @@ _data = {
 "new_animation": SubResource("Animation_jv5ry")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vfsm8"]
+resource_local_to_scene = true
+shader = ExtResource("9_4a5nj")
+shader_parameter/setColor = Color(0, 1, 0, 1)
+shader_parameter/chosenColor1 = Color(0.678431, 0.678431, 0.678431, 1)
+shader_parameter/chosenColor2 = Color(0.737255, 0.737255, 0.737255, 1)
+shader_parameter/chosenColor3 = Color(0.705882, 0.705882, 0.705882, 1)
+shader_parameter/chosenColor4 = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_clk1e"]
+resource_local_to_scene = true
+shader = ExtResource("9_4a5nj")
+shader_parameter/setColor = Color(0, 1, 0, 1)
+shader_parameter/chosenColor1 = Color(0.85098, 0.85098, 0.85098, 1)
+shader_parameter/chosenColor2 = Color(0.737255, 0.737255, 0.737255, 1)
+shader_parameter/chosenColor3 = Color(1, 1, 1, 1)
+shader_parameter/chosenColor4 = null
+
 [node name="Game" type="Node2D"]
 position = Vector2(1, 0)
 script = ExtResource("1_nlnyc")
@@ -443,13 +462,25 @@ position = Vector2(184, 49)
 [node name="Plate" parent="Button-Door/button-door1" index="0"]
 position = Vector2(-18, 56)
 
+[node name="plate-sprite" parent="Button-Door/button-door1/Plate" index="0"]
+material = SubResource("ShaderMaterial_vfsm8")
+
 [node name="Door" parent="Button-Door/button-door1" index="1"]
 position = Vector2(-65, 56)
+
+[node name="door-sprite" parent="Button-Door/button-door1/Door" index="0"]
+material = SubResource("ShaderMaterial_clk1e")
+
+[node name="Closed" parent="Button-Door/button-door1/Door" index="1"]
+visible = false
+
+[node name="PartiallyClosed" parent="Button-Door/button-door1/Door" index="2"]
+visible = false
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Transition" parent="Node2D" instance=ExtResource("9_uls6g")]
-position = Vector2(-47, -43)
+position = Vector2(314, -90)
 
 [node name="staticD" type="StaticBody2D" parent="."]
 script = ExtResource("10_ew11d")

@@ -1,8 +1,18 @@
-[gd_scene load_steps=26 format=3 uid="uid://bysksk2821t4j"]
+[gd_scene load_steps=29 format=3 uid="uid://bysksk2821t4j"]
 
 [ext_resource type="Texture2D" uid="uid://ca40sfqrpv3ly" path="res://Assets/sprites/Button.png" id="1_w5a1w"]
 [ext_resource type="Script" path="res://Scripts/button-door.gd" id="1_xsv4w"]
+[ext_resource type="Shader" path="res://Shaders/button.gdshader" id="2_rmqkp"]
 [ext_resource type="Texture2D" uid="uid://uphflgf2v30h" path="res://Assets/sprites/Button Door.png" id="2_vheqw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t52or"]
+resource_local_to_scene = true
+shader = ExtResource("2_rmqkp")
+shader_parameter/setColor = null
+shader_parameter/chosenColor1 = null
+shader_parameter/chosenColor2 = null
+shader_parameter/chosenColor3 = null
+shader_parameter/chosenColor4 = null
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jdnmg"]
 atlas = ExtResource("1_w5a1w")
@@ -54,6 +64,14 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ry2du"]
 size = Vector2(12, 3)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_31358"]
+shader = ExtResource("2_rmqkp")
+shader_parameter/setColor = Color(0, 0, 0, 1)
+shader_parameter/chosenColor1 = Color(0, 0, 0, 1)
+shader_parameter/chosenColor2 = null
+shader_parameter/chosenColor3 = null
+shader_parameter/chosenColor4 = null
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j0q2a"]
 atlas = ExtResource("2_vheqw")
@@ -165,6 +183,7 @@ script = ExtResource("1_xsv4w")
 collision_mask = 10
 
 [node name="plate-sprite" type="AnimatedSprite2D" parent="Plate"]
+material = SubResource("ShaderMaterial_t52or")
 position = Vector2(-8, 0)
 sprite_frames = SubResource("SpriteFrames_7csoc")
 animation = &"idle"
@@ -179,6 +198,7 @@ lock_rotation = true
 freeze = true
 
 [node name="door-sprite" type="AnimatedSprite2D" parent="Door"]
+material = SubResource("ShaderMaterial_31358")
 position = Vector2(8, -8)
 sprite_frames = SubResource("SpriteFrames_6bfbc")
 animation = &"idle"
@@ -192,5 +212,5 @@ shape = SubResource("RectangleShape2D_cxdya")
 position = Vector2(8, -16)
 shape = SubResource("RectangleShape2D_1028h")
 
-[connection signal="body_entered" from="Plate" to="." method="_on_plate_body_entered"]
-[connection signal="body_exited" from="Plate" to="." method="_on_plate_body_exited"]
+[connection signal="area_entered" from="Plate" to="." method="_on_plate_area_entered"]
+[connection signal="area_exited" from="Plate" to="." method="_on_plate_area_exited"]
