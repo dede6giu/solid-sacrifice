@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=4 uid="uid://bvpws0ktrdva1"]
+
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_nlx27"]
+[ext_resource type="TileSet" uid="uid://btj3oh8wvdc2m" path="res://Assets/sprites/tileset.tres" id="2_b20wn"]
+[ext_resource type="PackedScene" uid="uid://mfcgv2lxhelj" path="res://Scenes/player.tscn" id="4_0mefp"]
+[ext_resource type="PackedScene" uid="uid://dr3n25lp8t06p" path="res://Scenes/box.tscn" id="5_w8exi"]
+[ext_resource type="PackedScene" uid="uid://bos6uwg4woc4q" path="res://Scenes/spikes.tscn" id="6_i53rs"]
+
+[node name="Puzzle1" type="Node2D"]
+script = ExtResource("1_nlx27")
+levelPath = "res://Scenes/level/puzzle1.tscn"
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(104, -168)
+
+[node name="Tileset" type="Node2D" parent="."]
+
+[node name="ground" type="TileMapLayer" parent="Tileset"]
+tile_map_data = PackedByteArray("AAABAP//AAAHAAQAAAACAP//AAAHAAQAAAADAP//AAAHAAQAAAAEAP//AAAHAAQAAAAFAP//AAAHAAQAAAAGAP//AAAHAAQAAAAHAP//AAAHAAQAAAAIAP//AAAHAAQAAAAJAP//AAAHAAQAAAAKAP//AAAHAAQAAAAAAP7/AAAIAAUAAAAAAP3/AAAIAAUAAAAAAPz/AAAIAAUAAAAAAPv/AAAIAAUAAAAAAPr/AAAIAAUAAAAAAPn/AAAIAAUAAAAAAPj/AAAIAAUAAAAAAPf/AAAIAAUAAAAAAPb/AAAIAAUAAAAAAPX/AAAIAAUAAAAAAPT/AAAIAAUAAAAAAPP/AAAIAAUAAAABAPL/AAAHAAYAAAACAPL/AAAHAAYAAAADAPL/AAAHAAYAAAAEAPL/AAAHAAYAAAAFAPL/AAAHAAYAAAAGAPL/AAAHAAYAAAAHAPL/AAAHAAYAAAAIAPL/AAAHAAYAAAAJAPL/AAAHAAYAAAAKAPL/AAAHAAYAAAALAPL/AAAHAAYAAAAMAPL/AAAHAAYAAAANAPL/AAAHAAYAAAAOAPL/AAAHAAYAAAAPAPL/AAAHAAYAAAAQAPL/AAAHAAYAAAARAPL/AAAHAAYAAAASAPL/AAAHAAYAAAATAPL/AAAHAAYAAAAXAPz/AAAGAAUAAAAXAP3/AAAGAAUAAAAXAPj/AAAHAAUAAAAXAPn/AAAHAAUAAAAXAPr/AAAHAAUAAAAXAPv/AAAHAAUAAAAXAPf/AAAHAAUAAAAXAPX/AAAHAAUAAAAXAPb/AAAHAAUAAAAVAPL/AAAHAAUAAAAWAPL/AAAHAAUAAAAXAPL/AAAHAAUAAAAUAPL/AAAHAAUAAAALAP//AAAHAAUAAAALAAAAAAAHAAUAAAAMAP//AAAHAAUAAAAMAAAAAAAHAAUAAAANAP//AAAHAAUAAAANAAAAAAAHAAUAAAAOAP//AAAHAAUAAAAOAAAAAAAHAAUAAAAPAP//AAAHAAUAAAAPAAAAAAAHAAUAAAAQAP//AAAHAAUAAAAQAAAAAAAHAAUAAAARAP//AAAHAAUAAAARAAAAAAAHAAUAAAASAP//AAAHAAUAAAASAAAAAAAHAAUAAAATAP//AAAHAAUAAAATAAAAAAAHAAUAAAAUAP//AAAHAAUAAAAUAAAAAAAHAAUAAAAVAP//AAAHAAUAAAAVAAAAAAAHAAUAAAAWAP//AAAHAAUAAAAWAAAAAAAHAAUAAAAXAP//AAAHAAUAAAAXAAAAAAAHAAUAAAAXAP7/AAAHAAUAAAAAAP//AAAHAAUAAAAAAAAAAAAHAAUAAAABAAAAAAAHAAUAAAACAAAAAAAHAAUAAAADAAAAAAAHAAUAAAAEAAAAAAAHAAUAAAAFAAAAAAAHAAUAAAAGAAAAAAAHAAUAAAAHAAAAAAAHAAUAAAAIAAAAAAAHAAUAAAAJAAAAAAAHAAUAAAAKAAAAAAAHAAUAAAD///L/AAAHAAUAAAD///P/AAAHAAUAAAD///T/AAAHAAUAAAD///X/AAAHAAUAAAD///b/AAAHAAUAAAD///f/AAAHAAUAAAD///j/AAAHAAUAAAD///n/AAAHAAUAAAD///r/AAAHAAUAAAD///v/AAAHAAUAAAD///z/AAAHAAUAAAD///3/AAAHAAUAAAD///7/AAAHAAUAAAD/////AAAHAAUAAAD//wAAAAAHAAUAAAAAAPL/AAAHAAUAAAAXAPT/AAAHAAUAAAAXAPP/AAAHAAUAAAA=")
+tile_set = ExtResource("2_b20wn")
+
+[node name="Player" parent="." instance=ExtResource("4_0mefp")]
+position = Vector2(104, -168)
+
+[node name="Camera2D" parent="Player" index="3"]
+limit_left = 0
+limit_right = 384
+limit_bottom = 0
+
+[node name="Boxes" type="Node2D" parent="."]
+
+[node name="Box" parent="Boxes" instance=ExtResource("5_w8exi")]
+position = Vector2(184, -24)
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Spikes" parent="Spikes" instance=ExtResource("6_i53rs")]
+visible = false
+position = Vector2(72, -72)
+rotation = 3.14159
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 248.0
+offset_top = -168.0
+offset_right = 288.0
+offset_bottom = -128.0
+
+[node name="Label4" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -80.0
+offset_top = -32.0
+offset_right = -8.0
+offset_bottom = -9.0
+text = "Créditos"
+
+[node name="Label3" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 108.0
+offset_bottom = 55.0
+text = "Artes
+Luca Heringer"
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -112.0
+offset_right = -7.0
+offset_bottom = 64.0
+text = "Música
+José Antônio"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -224.0
+offset_right = -116.0
+offset_bottom = 127.0
+text = "Programação
+Carlos Cauã
+Hudson Cauã
+José Antônio
+Luca Heringer"
+
+[node name="Label5" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -88.0
+offset_top = 64.0
+offset_right = 112.0
+offset_bottom = 120.0
+text = "Agradecimento Especial
+        Variáveis Globais"
+
+[editable path="Player"]

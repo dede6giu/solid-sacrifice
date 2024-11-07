@@ -37,6 +37,7 @@ linear_damp = 1.0
 script = ExtResource("1_y2tvp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 5
 texture = ExtResource("1_0csh1")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)

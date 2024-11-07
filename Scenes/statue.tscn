@@ -114,6 +114,7 @@ animations = [{
 visible = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Box"]
+z_index = 5
 sprite_frames = SubResource("SpriteFrames_whwrt")
 animation = &"Stone"
 autoplay = "Stone"
