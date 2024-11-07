@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://63n06bchigt7"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_ir4tp"]
-[ext_resource type="TileSet" path="res://Assets/sprites/tileset.tres" id="2_xf3m7"]
+[ext_resource type="TileSet" uid="uid://btj3oh8wvdc2m" path="res://Assets/sprites/tileset.tres" id="2_xf3m7"]
 [ext_resource type="PackedScene" uid="uid://c6yt25k2xkwt5" path="res://Scenes/key-door.tscn" id="3_1g1dc"]
 [ext_resource type="PackedScene" uid="uid://mfcgv2lxhelj" path="res://Scenes/player.tscn" id="4_clfeb"]
 [ext_resource type="PackedScene" uid="uid://dr3n25lp8t06p" path="res://Scenes/box.tscn" id="5_r1hch"]
@@ -12,7 +12,7 @@ script = ExtResource("1_ir4tp")
 levelPath = "res://Scenes/level/puzzle1.tscn"
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(32, -32)
+position = Vector2(32, -24)
 
 [node name="Tileset" type="Node2D" parent="."]
 
@@ -39,7 +39,7 @@ position = Vector2(216, -96)
 position = Vector2(376, -48)
 
 [node name="Player" parent="." instance=ExtResource("4_clfeb")]
-position = Vector2(32, -32)
+position = Vector2(32, -24)
 
 [node name="Camera2D" parent="Player" index="3"]
 limit_left = 0
