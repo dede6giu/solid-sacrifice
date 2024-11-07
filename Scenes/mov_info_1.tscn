@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://dhgxlyqcc03tj"]
+
+[ext_resource type="Texture2D" uid="uid://dax5k2r2lnxji" path="res://Assets/sprites/MovInfo1.png" id="1_4yfgh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by470"]
+atlas = ExtResource("1_4yfgh")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvlpx"]
+atlas = ExtResource("1_4yfgh")
+region = Rect2(0, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emeky"]
+atlas = ExtResource("1_4yfgh")
+region = Rect2(0, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jq63"]
+atlas = ExtResource("1_4yfgh")
+region = Rect2(0, 96, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn6dy"]
+atlas = ExtResource("1_4yfgh")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mduw6"]
+atlas = ExtResource("1_4yfgh")
+region = Rect2(48, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0gvf"]
+atlas = ExtResource("1_4yfgh")
+region = Rect2(48, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0qp3"]
+atlas = ExtResource("1_4yfgh")
+region = Rect2(48, 96, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h3ihq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_by470")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvlpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emeky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jq63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn6dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mduw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0gvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0qp3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[node name="MovInfo1" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_h3ihq")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.514334

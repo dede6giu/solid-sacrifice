@@ -20,6 +20,10 @@ config/icon="res://Assets/icon.svg"
 Global="*res://Scripts/global.gd"
 TransitionAnimation="*res://Scenes/transitionAnimation.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="GameJam"
