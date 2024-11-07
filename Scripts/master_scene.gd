@@ -30,7 +30,7 @@ func showUI() -> void:
 
 func _on_button_pressed() -> void:
 	hideUI()
-	load_level("levels/puzzle1")
+	load_level("levels/puzzle3")
 	btn_game.release_focus()
 
 
@@ -41,5 +41,5 @@ func _on_button_2_pressed() -> void:
 
 func _on_button_3_pressed() -> void:
 	hideUI()
-	load_level("teste")
+	load_level("levels/easy_level")
 	btn_teste.release_focus()

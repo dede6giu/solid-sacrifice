@@ -37,7 +37,7 @@ tile_set = ExtResource("2_7msqh")
 [node name="Key-Door" parent="keydoors" instance=ExtResource("3_qr6m8")]
 
 [node name="Key" parent="keydoors/Key-Door" index="0"]
-position = Vector2(64, -72)
+position = Vector2(56, -64)
 
 [node name="Door" parent="keydoors/Key-Door" index="1"]
 position = Vector2(360, -96)
