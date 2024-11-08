@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b4bw6tti0rojg"]
+[gd_scene load_steps=35 format=3 uid="uid://b4bw6tti0rojg"]
 
 [ext_resource type="Script" path="res://Scripts/master_scene.gd" id="1_n1vwq"]
 [ext_resource type="Script" path="res://Scripts/titlescreen.gd" id="2_7771y"]
@@ -9,8 +9,11 @@
 [ext_resource type="FontFile" uid="uid://dia75cxwyi1q8" path="res://Assets/fonts/gomarice_no_continue.ttf" id="4_rkaa5"]
 [ext_resource type="Texture2D" uid="uid://bgbqvdij30qai" path="res://Assets/sprites/ExitSign_Hover.png" id="4_sey8n"]
 [ext_resource type="Texture2D" uid="uid://bdox0xu481qcq" path="res://Assets/sprites/ExitSign_Pressed.png" id="5_3iswc"]
+[ext_resource type="Texture2D" uid="uid://bnejpq3gt2ksu" path="res://Assets/sprites/Menu/MenuTransforming.png" id="5_65hx2"]
 [ext_resource type="PackedScene" uid="uid://bpm2umr3xk6as" path="res://Scenes/transition.tscn" id="5_hc2df"]
 [ext_resource type="Texture2D" uid="uid://d0rookyunkern" path="res://Assets/sprites/ExitSign.png" id="5_hjtpv"]
+[ext_resource type="Texture2D" uid="uid://bkpt4olibtwqd" path="res://Assets/sprites/Menu/MenuNormal.png" id="6_upywk"]
+[ext_resource type="Texture2D" uid="uid://14ex2wr7dx7v" path="res://Assets/sprites/Menu/MenuStatue.png" id="7_3tulu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_12hvh"]
 
@@ -22,8 +25,25 @@ shadow_size = 211
 shadow_color = Color(0.137255, 0.137255, 0.137255, 1)
 shadow_offset = Vector2(4, 3)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpfqw"]
-size = Vector2(120, 56)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nbvdv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pm4ft"]
+font = ExtResource("4_rkaa5")
+font_size = 56
+font_color = Color(0.945098, 0.952941, 0, 1)
+shadow_size = 211
+shadow_color = Color(0.137255, 0.137255, 0.137255, 1)
+shadow_offset = Vector2(4, 3)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_njvt6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cvowa"]
+font = ExtResource("4_rkaa5")
+font_size = 56
+font_color = Color(0.945098, 0.952941, 0, 1)
+shadow_size = 211
+shadow_color = Color(0.137255, 0.137255, 0.137255, 1)
+shadow_offset = Vector2(4, 3)
 
 [sub_resource type="LabelSettings" id="LabelSettings_b1f31"]
 line_spacing = 1.0
@@ -33,6 +53,45 @@ font_color = Color(0.945098, 0.952941, 0, 1)
 shadow_size = 161
 shadow_color = Color(0.137255, 0.137255, 0.137255, 1)
 shadow_offset = Vector2(6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4asn"]
+atlas = ExtResource("5_65hx2")
+region = Rect2(0, 0, 247, 424)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryu2k"]
+atlas = ExtResource("6_upywk")
+region = Rect2(0, 0, 247, 424)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brju6"]
+atlas = ExtResource("7_3tulu")
+region = Rect2(0, 0, 247, 424)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cpryx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4asn")
+}],
+"loop": false,
+"name": &"halfstone",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryu2k")
+}],
+"loop": false,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brju6")
+}],
+"loop": false,
+"name": &"stone",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_n3vap"]
 length = 0.001
@@ -104,9 +163,9 @@ script = ExtResource("2_7771y")
 [node name="Button" type="Button" parent="Menu"]
 layout_mode = 0
 offset_left = 64.0
-offset_top = 256.0
+offset_top = 272.0
 offset_right = 184.0
-offset_bottom = 312.0
+offset_bottom = 328.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_12hvh")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_12hvh")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_12hvh")
@@ -119,35 +178,84 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_12hvh")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_12hvh")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_12hvh")
 
-[node name="RichTextLabel" type="Label" parent="Menu/Button"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="ButtonLabel" type="Label" parent="Menu/Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.533
+anchor_top = -4.571
+anchor_right = -0.533
+anchor_bottom = -4.571
+offset_left = 63.96
+offset_top = 255.976
+offset_right = 103.96
+offset_bottom = 295.976
 text = "Play
 "
 label_settings = SubResource("LabelSettings_il3so")
 
-[node name="Area2D" type="Area2D" parent="Menu/Button"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Button/Area2D"]
-position = Vector2(60, 28)
-shape = SubResource("RectangleShape2D_tpfqw")
-
 [node name="Button2" type="Button" parent="Menu"]
 layout_mode = 0
-offset_left = 56.0
-offset_top = 552.0
-offset_right = 184.0
-offset_bottom = 583.0
+offset_left = 64.0
+offset_top = 520.0
+offset_right = 304.0
+offset_bottom = 576.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nbvdv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_nbvdv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_nbvdv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_nbvdv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_nbvdv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_nbvdv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nbvdv")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_nbvdv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nbvdv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_nbvdv")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nbvdv")
+
+[node name="Button2Label" type="Label" parent="Menu/Button2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.333
+anchor_top = -6.857
+anchor_right = -0.333
+anchor_bottom = -6.857
+offset_left = 79.92
+offset_top = 383.992
+offset_right = 316.92
+offset_bottom = 441.992
 text = "Quit Game"
+label_settings = SubResource("LabelSettings_pm4ft")
 
 [node name="Button3" type="Button" parent="Menu"]
 layout_mode = 0
 offset_left = 64.0
-offset_top = 448.0
-offset_right = 192.0
-offset_bottom = 479.0
-text = "Show Credits"
+offset_top = 392.0
+offset_right = 256.0
+offset_bottom = 448.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_njvt6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_njvt6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_njvt6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_njvt6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_njvt6")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_njvt6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_njvt6")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_njvt6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_njvt6")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_njvt6")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_njvt6")
+
+[node name="Button3Label" type="Label" parent="Menu/Button3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.267
+anchor_top = -9.143
+anchor_right = -0.267
+anchor_bottom = -9.143
+offset_left = 49.128
+offset_top = 512.008
+offset_right = 241.128
+offset_bottom = 570.008
+text = "Credits"
+label_settings = SubResource("LabelSettings_cvowa")
 
 [node name="Statue Change" type="Timer" parent="Menu"]
 
@@ -160,6 +268,13 @@ offset_bottom = 224.0
 text = "Solid
 Sacrifice"
 label_settings = SubResource("LabelSettings_b1f31")
+
+[node name="Character" type="AnimatedSprite2D" parent="Menu"]
+position = Vector2(936, 360)
+scale = Vector2(1.5174, 1.5174)
+sprite_frames = SubResource("SpriteFrames_cpryx")
+animation = &"normal"
+autoplay = "normal"
 
 [node name="Main2D" type="Node2D" parent="."]
 
@@ -206,6 +321,9 @@ path = "res://Scenes/levels/level0.tscn"
 position = Vector2(-432, 216)
 
 [connection signal="pressed" from="Menu/Button" to="." method="_on_button_pressed"]
+[connection signal="gui_input" from="Menu/Button/ButtonLabel" to="Menu" method="_on_button_label_gui_input"]
+[connection signal="mouse_entered" from="Menu/Button/ButtonLabel" to="Menu" method="_on_button_label_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/Button/ButtonLabel" to="Menu" method="_on_button_label_mouse_exited"]
 [connection signal="pressed" from="Menu/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Menu/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="timeout" from="Menu/Statue Change" to="Menu" method="_on_statue_change_timeout"]
