@@ -259,7 +259,7 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_8s27j")
 
 [node name="FreeFallTimer" type="Timer" parent="."]
-wait_time = 0.36
+wait_time = 0.5
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

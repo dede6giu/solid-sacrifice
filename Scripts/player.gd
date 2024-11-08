@@ -12,6 +12,11 @@ var isHoldingBox := false
 var isNearBox := false
 var heldBoxID = null
 var isDead := false
+const coyoteConst := 7
+var coyoteTime := coyoteConst
+var bufferedJump := false
+var bufferedJumpTimer := 0
+const bufferedJumpConst := 10
 @onready var free_fall_timer: Timer = $FreeFallTimer
 
 
@@ -42,9 +47,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Reset"):
 		Global.Reset(get_parent().get_instance_id(), get_parent().levelPath)
 		return
-	if not is_on_floor():
+	if !is_on_floor():
 		velocity += get_gravity() * delta
+		coyoteTime -= 1 if coyoteTime > 0 else 0
 	else:
+		coyoteTime = coyoteConst
 		isJump = false
 		isFreeFall = false
 		free_fall_timer.stop()
@@ -52,9 +59,27 @@ func _physics_process(delta: float) -> void:
 			isHoldingBox = true
 		else:
 			isHoldingBox = false
-
+	
+	if !is_on_floor() and Input.is_action_just_pressed("jump") and coyoteTime <= 0:
+		bufferedJump = true
+		bufferedJumpTimer = bufferedJumpConst
+	
+	if bufferedJumpTimer > 0:
+		bufferedJumpTimer -= 1
+	else:
+		bufferedJump = false
+	
+	if bufferedJump and bufferedJumpTimer < bufferedJumpConst and is_on_floor():
+		print("yippeee")
+	
 	# Handle jump.
-	if !isHoldingBox and Input.is_action_just_pressed("jump") and is_on_floor():
+	if (!isHoldingBox and (
+	(Input.is_action_just_pressed("jump") and is_on_floor()) or 
+	(Input.is_action_just_pressed("jump") and !is_on_floor() and coyoteTime > 0) or 
+	(bufferedJump and is_on_floor()) ) ):
+		if bufferedJump:
+			bufferedJump = false
+		coyoteTime = 0
 		velocity.y = JUMP_VELOCITY
 		animated_sprite_2d.play("Jump")
 		isJump = true
