@@ -1,4 +1,4 @@
-extends AudioStreamPlayer2D
+extends AudioStreamPlayer
 @onready var effects_handler: AnimationPlayer = $"Effects Handler"
 
 
