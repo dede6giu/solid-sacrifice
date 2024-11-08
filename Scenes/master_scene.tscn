@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b4bw6tti0rojg"]
+[gd_scene load_steps=32 format=3 uid="uid://b4bw6tti0rojg"]
 
 [ext_resource type="Script" path="res://Scripts/master_scene.gd" id="1_n1vwq"]
 [ext_resource type="Script" path="res://Scripts/titlescreen.gd" id="2_7771y"]
@@ -17,33 +17,9 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_12hvh"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_il3so"]
-font = ExtResource("4_rkaa5")
-font_size = 56
-font_color = Color(0.945098, 0.952941, 0, 1)
-shadow_size = 211
-shadow_color = Color(0.137255, 0.137255, 0.137255, 1)
-shadow_offset = Vector2(4, 3)
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nbvdv"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_pm4ft"]
-font = ExtResource("4_rkaa5")
-font_size = 56
-font_color = Color(0.945098, 0.952941, 0, 1)
-shadow_size = 211
-shadow_color = Color(0.137255, 0.137255, 0.137255, 1)
-shadow_offset = Vector2(4, 3)
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_njvt6"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_cvowa"]
-font = ExtResource("4_rkaa5")
-font_size = 56
-font_color = Color(0.945098, 0.952941, 0, 1)
-shadow_size = 211
-shadow_color = Color(0.137255, 0.137255, 0.137255, 1)
-shadow_offset = Vector2(4, 3)
 
 [sub_resource type="LabelSettings" id="LabelSettings_b1f31"]
 line_spacing = 1.0
@@ -160,12 +136,65 @@ texture = ExtResource("2_wcm61")
 anchors_preset = 0
 script = ExtResource("2_7771y")
 
+[node name="Label" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.533
+anchor_top = -4.69
+anchor_right = -0.533
+anchor_bottom = -4.69
+offset_left = 72.0
+offset_top = 280.0
+offset_right = 185.0
+offset_bottom = 338.0
+theme_override_colors/font_color = Color(0.137255, 0.137255, 0.137255, 1)
+theme_override_fonts/font = ExtResource("4_rkaa5")
+theme_override_font_sizes/font_size = 56
+text = "Play"
+
+[node name="Label2" type="Label" parent="Menu"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 400.0
+offset_right = 256.0
+offset_bottom = 458.0
+theme_override_colors/font_color = Color(0.137255, 0.137255, 0.137255, 1)
+theme_override_fonts/font = ExtResource("4_rkaa5")
+theme_override_font_sizes/font_size = 56
+text = "Credits"
+
+[node name="Label3" type="Label" parent="Menu"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 528.0
+offset_right = 309.0
+offset_bottom = 586.0
+theme_override_colors/font_color = Color(0.137255, 0.137255, 0.137255, 1)
+theme_override_fonts/font = ExtResource("4_rkaa5")
+theme_override_font_sizes/font_size = 56
+text = "QUit Game"
+
 [node name="Button" type="Button" parent="Menu"]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 272.0
 offset_right = 184.0
 offset_bottom = 328.0
+theme_override_colors/font_disabled_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.65098, 0.678431, 0.0392157, 1)
+theme_override_colors/font_hover_color = Color(1, 0.760784, 0.00784314, 1)
+theme_override_colors/font_pressed_color = Color(0.65098, 0.678431, 0.0392157, 1)
+theme_override_colors/font_focus_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/font_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/font_outline_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_fonts/font = ExtResource("4_rkaa5")
+theme_override_font_sizes/font_size = 56
 theme_override_styles/focus = SubResource("StyleBoxEmpty_12hvh")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_12hvh")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_12hvh")
@@ -177,21 +206,7 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_12hvh")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_12hvh")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_12hvh")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_12hvh")
-
-[node name="ButtonLabel" type="Label" parent="Menu/Button"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.533
-anchor_top = -4.571
-anchor_right = -0.533
-anchor_bottom = -4.571
-offset_left = 63.96
-offset_top = 255.976
-offset_right = 103.96
-offset_bottom = 295.976
-text = "Play
-"
-label_settings = SubResource("LabelSettings_il3so")
+text = "Play"
 
 [node name="Button2" type="Button" parent="Menu"]
 layout_mode = 0
@@ -199,6 +214,21 @@ offset_left = 64.0
 offset_top = 520.0
 offset_right = 304.0
 offset_bottom = 576.0
+theme_override_colors/font_disabled_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.65098, 0.678431, 0.0392157, 1)
+theme_override_colors/font_hover_color = Color(1, 0.760784, 0.00784314, 1)
+theme_override_colors/font_pressed_color = Color(0.65098, 0.678431, 0.0392157, 1)
+theme_override_colors/font_focus_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/font_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/font_outline_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_fonts/font = ExtResource("4_rkaa5")
+theme_override_font_sizes/font_size = 56
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nbvdv")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_nbvdv")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_nbvdv")
@@ -210,20 +240,7 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_nbvdv")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_nbvdv")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_nbvdv")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_nbvdv")
-
-[node name="Button2Label" type="Label" parent="Menu/Button2"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.333
-anchor_top = -6.857
-anchor_right = -0.333
-anchor_bottom = -6.857
-offset_left = 79.92
-offset_top = 383.992
-offset_right = 316.92
-offset_bottom = 441.992
 text = "Quit Game"
-label_settings = SubResource("LabelSettings_pm4ft")
 
 [node name="Button3" type="Button" parent="Menu"]
 layout_mode = 0
@@ -231,6 +248,21 @@ offset_left = 64.0
 offset_top = 392.0
 offset_right = 256.0
 offset_bottom = 448.0
+theme_override_colors/font_disabled_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.65098, 0.678431, 0.0392157, 1)
+theme_override_colors/font_hover_color = Color(1, 0.760784, 0.00784314, 1)
+theme_override_colors/font_pressed_color = Color(0.65098, 0.678431, 0.0392157, 1)
+theme_override_colors/font_focus_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/font_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/font_outline_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0.945098, 0.952941, 0, 1)
+theme_override_fonts/font = ExtResource("4_rkaa5")
+theme_override_font_sizes/font_size = 56
 theme_override_styles/focus = SubResource("StyleBoxEmpty_njvt6")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_njvt6")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_njvt6")
@@ -242,20 +274,7 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_njvt6")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_njvt6")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_njvt6")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_njvt6")
-
-[node name="Button3Label" type="Label" parent="Menu/Button3"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.267
-anchor_top = -9.143
-anchor_right = -0.267
-anchor_bottom = -9.143
-offset_left = 49.128
-offset_top = 512.008
-offset_right = 241.128
-offset_bottom = 570.008
 text = "Credits"
-label_settings = SubResource("LabelSettings_cvowa")
 
 [node name="Statue Change" type="Timer" parent="Menu"]
 
@@ -321,9 +340,6 @@ path = "res://Scenes/levels/level0.tscn"
 position = Vector2(-432, 216)
 
 [connection signal="pressed" from="Menu/Button" to="." method="_on_button_pressed"]
-[connection signal="gui_input" from="Menu/Button/ButtonLabel" to="Menu" method="_on_button_label_gui_input"]
-[connection signal="mouse_entered" from="Menu/Button/ButtonLabel" to="Menu" method="_on_button_label_mouse_entered"]
-[connection signal="mouse_exited" from="Menu/Button/ButtonLabel" to="Menu" method="_on_button_label_mouse_exited"]
 [connection signal="pressed" from="Menu/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Menu/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="timeout" from="Menu/Statue Change" to="Menu" method="_on_statue_change_timeout"]
