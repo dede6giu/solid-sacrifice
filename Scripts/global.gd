@@ -5,6 +5,8 @@ static var comingFromMenu := false
 static var comingMenuScene := "res://Scenes/levels/level-1.tscn"
 static var goingToMenu = null
 
+static var inTransition := true
+
 static var saved_positions = {}
 static var statue_limit = 2
 static var box_queue = []

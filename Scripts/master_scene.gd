@@ -11,7 +11,19 @@ var level_instance : Node2D
 @onready var to_menu: Button = $"HUD/To Menu"
 
 func _ready() -> void:
-	hud.set_deferred("visible", false)
+	setHud(false)
+
+func _process(delta: float) -> void:
+	if Global.inTransition:
+		setHud(false)
+	else:
+		setHud(true)
+
+func setHud(boo) -> void:
+	if boo:
+		hud.set_deferred("visible", true)
+	else:
+		hud.set_deferred("visible", false)
 
 func unload_level() -> void:
 	if is_instance_valid(level_instance):
@@ -41,7 +53,7 @@ func _on_button_pressed() -> void:
 	Global.comingFromMenu = true
 	Global.comingMenuScene = "res://Scenes/levels/level-1.tscn"
 	TransitionAnimation.changeScene("RightToLeft")
-	hud.set_deferred("visible", true)
+	Global.inTransition = true
 
 
 func _on_button_2_pressed() -> void:
@@ -52,7 +64,7 @@ func _on_button_2_pressed() -> void:
 
 func _on_to_menu_pressed() -> void:
 	to_menu.release_focus()
-	hud.set_deferred("visible", false)
+	Global.inTransition = true
 	var activeMaps = get_node("Main2D").get_children()[0]
 	Global.goingToMenu = activeMaps
 	Global.VariableReset()
@@ -64,7 +76,7 @@ func _on_button_3_pressed() -> void:
 	# play credits
 	btn_credits.release_focus()
 	hideUI()
+	Global.inTransition = true
 	Global.comingFromMenu = true
 	Global.comingMenuScene = "res://Scenes/creditos.tscn"
 	TransitionAnimation.changeScene("RightToLeft")
-	hud.set_deferred("visible", true)
