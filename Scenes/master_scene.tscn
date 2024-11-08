@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://b4bw6tti0rojg"]
+[gd_scene load_steps=19 format=3 uid="uid://b4bw6tti0rojg"]
 
 [ext_resource type="Script" path="res://Scripts/master_scene.gd" id="1_n1vwq"]
+[ext_resource type="Script" path="res://Scripts/titlescreen.gd" id="2_7771y"]
 [ext_resource type="AudioStream" uid="uid://c1p3e3x5u8i1o" path="res://Assets/music/gamejam1.ogg" id="2_eoinr"]
 [ext_resource type="Script" path="res://Scripts/music_handler.gd" id="3_tlbtu"]
 [ext_resource type="Script" path="res://Scripts/to_menu.gd" id="4_7upvv"]
@@ -68,6 +69,7 @@ script = ExtResource("1_n1vwq")
 
 [node name="Menu" type="Control" parent="."]
 anchors_preset = 0
+script = ExtResource("2_7771y")
 
 [node name="Button" type="Button" parent="Menu"]
 layout_mode = 0
@@ -92,6 +94,8 @@ offset_top = 304.0
 offset_right = 640.0
 offset_bottom = 335.0
 text = "Show Credits"
+
+[node name="Statue Change" type="Timer" parent="Menu"]
 
 [node name="Main2D" type="Node2D" parent="."]
 
