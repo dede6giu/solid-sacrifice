@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://b23g6nm04aurf"]
+
+[ext_resource type="Texture2D" uid="uid://dbd2o2s7wgp1r" path="res://Assets/sprites/Menu/SolidSacrificeLogo.png" id="1_1q8qr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5jhu"]
+atlas = ExtResource("1_1q8qr")
+region = Rect2(0, 0, 269, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvrjb"]
+atlas = ExtResource("1_1q8qr")
+region = Rect2(0, 122, 269, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iew21"]
+atlas = ExtResource("1_1q8qr")
+region = Rect2(0, 0, 269, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lptyn"]
+atlas = ExtResource("1_1q8qr")
+region = Rect2(0, 122, 269, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4lxu"]
+atlas = ExtResource("1_1q8qr")
+region = Rect2(0, 0, 269, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uyp3"]
+atlas = ExtResource("1_1q8qr")
+region = Rect2(0, 122, 269, 122)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_inv0c"]
+animations = [{
+"frames": [{
+"duration": 60.0,
+"texture": SubResource("AtlasTexture_d5jhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvrjb")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_iew21")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_lptyn")
+}, {
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_o4lxu")
+}, {
+"duration": 30.0,
+"texture": SubResource("AtlasTexture_8uyp3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[node name="Title" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_inv0c")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.29911

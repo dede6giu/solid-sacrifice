@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbbtqe21rvfs"]
+
+[ext_resource type="Texture2D" uid="uid://dpavu0mevjsga" path="res://Assets/sprites/ResetSign.png" id="1_y6b5k"]
+
+[node name="ResetSign" type="Sprite2D"]
+texture = ExtResource("1_y6b5k")

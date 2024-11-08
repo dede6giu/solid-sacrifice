@@ -1,14 +1,38 @@
-[gd_scene load_steps=19 format=3 uid="uid://b4bw6tti0rojg"]
+[gd_scene load_steps=25 format=3 uid="uid://b4bw6tti0rojg"]
 
 [ext_resource type="Script" path="res://Scripts/master_scene.gd" id="1_n1vwq"]
 [ext_resource type="Script" path="res://Scripts/titlescreen.gd" id="2_7771y"]
 [ext_resource type="AudioStream" uid="uid://c1p3e3x5u8i1o" path="res://Assets/music/gamejam1.ogg" id="2_eoinr"]
+[ext_resource type="Texture2D" uid="uid://ck8ik1xpyxpmw" path="res://Assets/sprites/Menu/MenuBackground.png" id="2_wcm61"]
 [ext_resource type="Script" path="res://Scripts/music_handler.gd" id="3_tlbtu"]
 [ext_resource type="Script" path="res://Scripts/to_menu.gd" id="4_7upvv"]
+[ext_resource type="FontFile" uid="uid://dia75cxwyi1q8" path="res://Assets/fonts/gomarice_no_continue.ttf" id="4_rkaa5"]
 [ext_resource type="Texture2D" uid="uid://bgbqvdij30qai" path="res://Assets/sprites/ExitSign_Hover.png" id="4_sey8n"]
 [ext_resource type="Texture2D" uid="uid://bdox0xu481qcq" path="res://Assets/sprites/ExitSign_Pressed.png" id="5_3iswc"]
 [ext_resource type="PackedScene" uid="uid://bpm2umr3xk6as" path="res://Scenes/transition.tscn" id="5_hc2df"]
 [ext_resource type="Texture2D" uid="uid://d0rookyunkern" path="res://Assets/sprites/ExitSign.png" id="5_hjtpv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_12hvh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_il3so"]
+font = ExtResource("4_rkaa5")
+font_size = 56
+font_color = Color(0.945098, 0.952941, 0, 1)
+shadow_size = 211
+shadow_color = Color(0.137255, 0.137255, 0.137255, 1)
+shadow_offset = Vector2(4, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpfqw"]
+size = Vector2(120, 56)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b1f31"]
+line_spacing = 1.0
+font = ExtResource("4_rkaa5")
+font_size = 95
+font_color = Color(0.945098, 0.952941, 0, 1)
+shadow_size = 161
+shadow_color = Color(0.137255, 0.137255, 0.137255, 1)
+shadow_offset = Vector2(6, 6)
 
 [sub_resource type="Animation" id="Animation_n3vap"]
 length = 0.001
@@ -67,35 +91,75 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_n1vwq")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_wcm61")
+
 [node name="Menu" type="Control" parent="."]
 anchors_preset = 0
 script = ExtResource("2_7771y")
 
 [node name="Button" type="Button" parent="Menu"]
 layout_mode = 0
-offset_left = 512.0
-offset_top = 240.0
-offset_right = 640.0
-offset_bottom = 271.0
-text = "Play Game"
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 184.0
+offset_bottom = 312.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_12hvh")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_12hvh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_12hvh")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_12hvh")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_12hvh")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_12hvh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_12hvh")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_12hvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_12hvh")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_12hvh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_12hvh")
+
+[node name="RichTextLabel" type="Label" parent="Menu/Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+text = "Play
+"
+label_settings = SubResource("LabelSettings_il3so")
+
+[node name="Area2D" type="Area2D" parent="Menu/Button"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Button/Area2D"]
+position = Vector2(60, 28)
+shape = SubResource("RectangleShape2D_tpfqw")
 
 [node name="Button2" type="Button" parent="Menu"]
 layout_mode = 0
-offset_left = 512.0
-offset_top = 368.0
-offset_right = 640.0
-offset_bottom = 399.0
+offset_left = 56.0
+offset_top = 552.0
+offset_right = 184.0
+offset_bottom = 583.0
 text = "Quit Game"
 
 [node name="Button3" type="Button" parent="Menu"]
 layout_mode = 0
-offset_left = 512.0
-offset_top = 304.0
-offset_right = 640.0
-offset_bottom = 335.0
+offset_left = 64.0
+offset_top = 448.0
+offset_right = 192.0
+offset_bottom = 479.0
 text = "Show Credits"
 
 [node name="Statue Change" type="Timer" parent="Menu"]
+
+[node name="MenuTitle" type="Label" parent="Menu"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 408.0
+offset_bottom = 224.0
+text = "Solid
+Sacrifice"
+label_settings = SubResource("LabelSettings_b1f31")
 
 [node name="Main2D" type="Node2D" parent="."]
 
@@ -131,15 +195,15 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_2t7pu")
 theme_override_styles/normal = SubResource("StyleBoxTexture_2t7pu")
 script = ExtResource("4_7upvv")
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(-432, 216)
-
 [node name="Transitions" type="Node2D" parent="."]
 
 [node name="Transition" parent="Transitions" instance=ExtResource("5_hc2df")]
 monitoring = false
 monitorable = false
 path = "res://Scenes/levels/level0.tscn"
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(-432, 216)
 
 [connection signal="pressed" from="Menu/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Menu/Button2" to="." method="_on_button_2_pressed"]

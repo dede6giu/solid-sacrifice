@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://mfcgv2lxhelj" path="res://Scenes/player.tscn" id="2_wth17"]
 [ext_resource type="TileSet" uid="uid://btj3oh8wvdc2m" path="res://Assets/sprites/tileset.tres" id="3_8hpkm"]
 [ext_resource type="PackedScene" uid="uid://c6yt25k2xkwt5" path="res://Scenes/key-door.tscn" id="4_sgeap"]
-[ext_resource type="PackedScene" path="res://Scenes/Button - Door.tscn" id="5_5phjy"]
+[ext_resource type="PackedScene" uid="uid://bysksk2821t4j" path="res://Scenes/Button - Door.tscn" id="5_5phjy"]
 [ext_resource type="Shader" path="res://Shaders/button.gdshader" id="6_sl5bg"]
 [ext_resource type="PackedScene" uid="uid://bos6uwg4woc4q" path="res://Scenes/spikes.tscn" id="7_jbrqi"]
 [ext_resource type="PackedScene" uid="uid://bpm2umr3xk6as" path="res://Scenes/transition.tscn" id="8_0inpj"]
