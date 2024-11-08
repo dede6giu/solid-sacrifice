@@ -2,7 +2,8 @@ extends Control
 
 @onready var btn_game: Button = $Menu/Button
 @onready var btn_quitgame: Button = $Menu/Button2
-@onready var btn_teste: Button = $Menu/Button3
+@onready var btn_credits: Button = $Menu/Button3
+
 var level_instance : Node2D
 @onready var main_2d: Node2D = $Main2D
 @onready var menu: Control = $Menu
@@ -34,14 +35,17 @@ func showUI() -> void:
 
 
 func _on_button_pressed() -> void:
+	# play game
 	btn_game.release_focus()
 	hideUI()
 	Global.comingFromMenu = true
+	Global.comingMenuScene = "res://Scenes/levels/level-1.tscn"
 	TransitionAnimation.changeScene("RightToLeft")
 	hud.set_deferred("visible", true)
 
 
 func _on_button_2_pressed() -> void:
+	# quit game
 	hideUI()
 	get_tree().quit()
 
@@ -54,3 +58,13 @@ func _on_to_menu_pressed() -> void:
 	Global.VariableReset()
 	TransitionAnimation.changeScene("RightToLeft")
 	showUI()
+
+
+func _on_button_3_pressed() -> void:
+	# play credits
+	btn_credits.release_focus()
+	hideUI()
+	Global.comingFromMenu = true
+	Global.comingMenuScene = "res://Scenes/creditos.tscn"
+	TransitionAnimation.changeScene("RightToLeft")
+	hud.set_deferred("visible", true)

@@ -2,6 +2,7 @@ extends Node2D
 
 static var musicPlaying := false
 static var comingFromMenu := false
+static var comingMenuScene := "res://Scenes/levels/level-1.tscn"
 static var goingToMenu = null
 
 static var saved_positions = {}
